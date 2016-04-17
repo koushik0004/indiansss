@@ -1,22 +1,28 @@
-<div class="clear"></div>
-			<?php if($this->uri->segment(1)=='home' || $this->uri->segment(1)==''):?>
-				<div class="working_committee"></div><br />
-            <?php endif; ?>
-            <?php if($this->uri->segment(1)=='gallery'):?>
-				<div class="presentation"><a href="<?php echo base_url();?>pdf/Classification in Geography.pdf" target="_blank"><img src="<?php echo base_url().'assats/looks/images/presentation.png'; ?>" border="0" id="btn_present"/></a></div><br />
-            <?php endif; ?>
-            <div class="quick_link"><a href="<?php echo site_url('home/'); ?>">Home</a> <a href="<?php echo site_url('rules/'); ?>">Rules</a> <a href="<?php echo site_url('issues/'); ?>">Issues</a> <a href="<?php echo site_url('notice/'); ?>">Notice Board</a> <a href="<?php echo site_url('gallery/'); ?>">Gallery</a> <a href="<?php echo site_url('contact/'); ?>">Contact Us</a></div>
-            <div class="clear"></div>
- </div>
- 
-      </div>
+
         <div class="clear"></div>
-<div id="footer">
-  <div class="footer_upper">Disclaimer :The National Institute of Science and Communication and Information Resources (CSIR) has awarded the Journal ISSN Nos. as ISSN 2249 – 3921 (for the Print Version)
-and ISSN 2249 – 4316 (for the On-line Version). The editor shall in no way be responsible for the views expressed by the authors in their articles.</div>
-	<div class="footer_lower"><a href="mailto:mukhopadhyaysangita@gmail.com" style="color:#fff; text-decoration:none;">Site maintained by Provati Digitrix</a></div><div class="footer_lower">Last Updated: 10'th September 2012</div><div class="footer_lower">Copyright @ IJSS 2012</div>
-	
-</div>
+        <div id="footer">
+        <div class="footer_upper"><!--Disclaimer :The National Institute of Science and Communication and Information Resources (CSIR) has awarded the Journal ISSN Nos. as ISSN 2249 – 3921 (for the Print Version)
+    and ISSN 2249 – 4316 (for the On-line Version). The editor shall in no way be responsible for the views expressed by the authors in their articles. -->
+            <div class="image-content footer-upper-first-child">
+                <img src="<?php echo base_url(); ?>assats/looks/images/footer-advanced-science-logo.JPG" class="left-img"/>
+            </div>
+            <div class="footer-upper-first-child">
+                <p>@ ISSS, 2010</p>
+                <p>EISSN: 2249 - 4316 ISSN: 2249 - 3921</p>
+            </div>
+            <div class="image-content footer-upper-first-child" >
+                <img src="<?php echo base_url(); ?>assats/looks/images/footer-net-online-science.JPG" class="right-img"/>
+            </div>
+        </div>
+        <div class="footer_middle">
+            <p>The Indian Journal of Spatial Science is published by ISSS, The Indian Society of Spatial Scientists</p>
+            <p>homepage: www.indiansss.org</p>
+        </div>
+        <div class="footer_lower">Site maintained by Provati Digitrix</div>
+        <div class="footer_lower">Last Updated: 4'th May 2012</div>
+        <div class="footer_lower">Copyright @ IJSS 2012</div>
+
+    </div>
   </div>
  
 </div>

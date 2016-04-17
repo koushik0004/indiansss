@@ -1,4 +1,5 @@
             <!--left sidebar-->
+<?php /*
             <div id="left_col">
             <img src="<?php echo base_url(); ?>assats/looks/images/left_col_icon.png" width="98" height="141" style="margin-bottom:20px;" />
             <img src="<?php echo base_url(); ?>assats/looks/images/current_issue.png" width="201" height="41" alt="current_issue" style="margin-bottom:15px;" />
@@ -21,8 +22,48 @@ been an important income source for the locals-->
 					$textval = preg_replace('!^<p>(.*?)</p>$!i', '$1', $current_issue[0]->content);
 					echo stripslashes(substr($textval, 0, 500));?>... <br /><br />
 			<?php endif; ?>
-            <span class="read_more"><a href="<?php echo base_url(); ?>pdf/pdfset-17/issueset-19/1_Article_Julfikar.pdf" target="_blank">Read More</a></span><br />
+            <span class="read_more"><a href="<?php echo base_url(); ?>pdf/pdfset-20/issueset-21/1_Piratheeparajah.pdf" target="_blank">Read More</a></span><br />
          
             </div>
             </div>
+            */ ?>
             <!--left sidebar end-->
+
+            <div id="left_col">
+				<div class="header-decoration">Navigation Menu</div>
+				<div class="left-col-list-holder">
+					<span class="left-col-list-heading">E-Journal</span>
+					<ul class="left-col-list">
+						<li><a href="">Current Issues</a></li>
+						<li><a href="">Past Issue</a></li>
+						<li><a href="">Search Articles</a></li>
+						<li><a href="">Research Papers</a></li>
+					</ul>
+					<hr />
+				</div>
+				
+				<div class="left-col-list-holder">
+					<span class="left-col-list-heading">Manuscript Management</span>
+					<ul class="left-col-list">
+						<li><a href="">Submit a manuscript</a></li>
+						<li><a href="">Reviewers' Sign In</a></li>
+						<li><a href="">Member Registration</a></li>
+						<li><a href="">Members' Sign In</a></li>
+						<li><a href="">Authers' Rule Book</a></li>
+					</ul>
+					<hr />
+				</div>
+				
+				<div class="left-col-list-holder">
+					<span class="left-col-list-heading">General Info Pages</span>
+					<ul class="left-col-list">
+						<li><a href="">News</a></li>
+						<li><a href="">Abstracting / Indexing</a></li>
+						<li><a href="">Web Statistics</a></li>
+						<li><a href="">Editorial Board</a></li>
+						<li><a href="">Practical / Useful Links</a></li>
+						<li><a href="">Subscriptions</a></li>
+					</ul>
+				</div>
+				
+            </div>

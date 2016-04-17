@@ -13,6 +13,8 @@ define('ADMIN', 'administrator/');
 | If this is not set then CodeIgniter will guess the protocol, domain and
 | path to your installation.
 |
+|
+|demo-project-koushik0004.c9users.io
 */
 $config['base_url']	= 'http://'.$_SERVER['HTTP_HOST'].'/indiansss/';
 

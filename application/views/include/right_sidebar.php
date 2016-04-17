@@ -1,4 +1,5 @@
             <!--Total right sidebar-->
+            <!--
             <style>
 				.archive{list-style:none; margin:0; padding:5px 10px 10px 20px; text-align:left; line-height:21px;}
 				.archive a{text-decoration:none;}
@@ -7,122 +8,30 @@
 				.archive .vol ul{line-height:10px;}
 				.archive .vol .vol-pdf{display:none;}
             </style>
-            <div class="right_article"><img src="<?php echo base_url(); ?>assats/looks/images/publication_archive.png" width="202" height="27" alt="Publication" />
-            	<?php 
-					$pdf_parent_cat = (isset($pdf_parent_cat))?$pdf_parent_cat:'';
-					$pdf_child_cat = (isset($pdf_child_cat))?$pdf_child_cat:'';
-					$end_chld_err = array();
-					$end_li_arr = array();
-					if(!empty($pdf_parent_cat)){
-						foreach($pdf_parent_cat as $key=>$val){
-							$end_li_arr[] = $key;
-						}
-					}
-					if(!empty($pdf_child_cat)){
-						foreach($pdf_child_cat as $key=>$val){
-							$end_chld_err[] = $key;
-						}
-					}
-					//print_r($end_chld_err);
-				?>
-              <ul style="" class="archive">
-              	<?php 
-					if(isset($all_journals) && !empty($all_journals) && !empty($pdf_parent_cat)):
-					//print_r($pdf_parent_cat);
-				?>
-                <li>
-                	<?php
-						$parent_cat = '';
-						$associated_cat = '';
-						$end_li = 1;
-						$end_test = 1;
-						$end_chld_li = 1;
-						$end_ul_test = 1;
-						foreach($all_journals as $journal_data):
-							//$nextObj = next($journal_data);
-							//echo $journal_data->next->parent_category;
-							//echo $end_li_arr[$end_li]
-							//echo $journal_data->cat_id;
-					?>
-					<?php if(($end_chld_li<count($end_chld_err)) && $end_chld_err[$end_chld_li] == $journal_data->cat_id && $end_ul_test == 0):?>
-                        		</ul></li>
-                        <?php 
-								$end_ul_test = 1;
-								$end_chld_li++;
-							endif; 
-						?>
-                    <?php if(($end_li<count($end_li_arr)) && $end_li_arr[$end_li] == $journal_data->parent_category && $end_test == 0):?>    
-                    	</ul></li><li>
-                    <?php 
-							$end_test = 1;
-							$end_li++;
-						endif; 
-					?>
-                    
-                    
-                        
-                    <?php if($parent_cat != $journal_data->parent_category):?>
-                    
-                    <a href="#" style="color:#0a546a"><?php echo $pdf_parent_cat[$journal_data->parent_category]; ?></a>
-                    <ul class="vol">
-                    <?php 
-							$end_test = 0;
-							$parent_cat = $journal_data->parent_category;
-						endif; 
-					?>
-                    
-                    
-                        
-						<?php if($associated_cat != $journal_data->under_category):?>
-                            
-                            <li><a href="#" style="color:#0a546a" id="vol_2010_cont_href1"><?php echo $journal_data->under_category; ?></a>
-                            <ul class="vol-pdf">
-                         <?php 
-						 		$end_ul_test = 0;
-						 		$associated_cat = $journal_data->under_category;
-						 	endif; ?>
-                                        <li><a href="<?php echo base_url().$journal_data->upload_path; ?>" style="color:#0a546a" id="vol_2010_cont_pdf_href1" target="_blank"><?php echo substr($journal_data->title, 0, 20).'..'?></a></li>
-                                
-                                <?php /*?><li><a href="#" style="color:#0a546a" id="vol_2010_cont_href2">Winter Issues(3)</a>
-                                    <ul id="vol_2010_cont_href2_pdf" class="vol-pdf">
-                                        <li><a href="<?php echo base_url(); ?>pdf/Vol_1_No_2/Art_003.pdf" style="color:#0a546a" id="vol_2010_cont_pdf_href1" target="_blank"><?php echo substr('Landscape Analysis using Multidated Data Layers from Topographical Map and Satellite Images', 0, 20).'..'?></a></li>
-                                        <li><a href="<?php echo base_url(); ?>pdf/Vol_1_No_2/Art_004.pdf" style="color:#0a546a" id="vol_2010_cont_pdf_href1" target="_blank"><?php echo substr('Strengthening Urban Green Infrastructure', 0, 20).'..'?></a></li>
-                                        <li><a href="<?php echo base_url(); ?>pdf/Vol_1_No_2/Art_005.pdf" style="color:#0a546a" id="vol_2010_cont_pdf_href1" target="_blank"><?php echo substr('Identifying Human Behaviour by using Soil Micromorphology— a geoarchaeological approach', 0, 20).'..'?></a></li>
-                                    </ul>
-                                </li><?php */?>
-                        
-                    
-					
-                    
-					<?php 
-						endforeach;
-					?>
-                    </li>
-                <?php 
-					endif;
-				?>
-            	
-            </ul>
-            </div>
+            -->
+
             <div id="right_col">
-       	    <img src="<?php echo base_url(); ?>assats/looks/images/related_site.png" width="202" height="27" alt="Related Site" />
-            <ul>
-            	<?php if(isset($sidebar_links)): ?>
-                	<?php foreach($sidebar_links as $link):?>
-            			<li><a href="<?php echo $link->url; ?>" target="_blank"><?php echo $link->title; ?></a></li>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-                <!--www.aag.org<li><a href="#" style="color:#0a546a">www.rdgs.dk</a></li>
-                <li><a href="#" style="color:#0a546a">www.ccsenet.org</a></li>
-                <li><a href="#" style="color:#0a546a">www.springer.com</a></li>
-                <li><a href="#" style="color:#0a546a">www.iosrjournals.org</a></li>
-                <li><a href="#" style="color:#0a546a">www.omicsgroup.org</a></li>
-                <li><a href="#" style="color:#0a546a">www.tandfonline.com</a></li>
-                <li><a href="#" style="color:#0a546a">www.academicjournals.org</a></li>
-                <li><a href="#" style="color:#0a546a">www.onlinelibrary.wiley.com</a></li>
-                <li><a href="#" style="color:#0a546a">www.antipodefoundation.org</a></li>
-                <li><a href="#" style="color:#0a546a">www.myncge.bravehearts.com</a></li>
-                <li><a href="#" style="color:#0a546a">www.eurogeographyjournal.eu</a></li>-->
-            </ul>
+			<div class="header-decoration overlap-padding-right-col">Current Issue</div>
+			<img src="<?php echo base_url(); ?>assats/looks/images/left_col_icon.png" width="98" height="141" style="margin-bottom:20px;" />
+			<!-- <img src="images/current_issue.png" width="201" height="41" alt="current_issue" style="margin-bottom:15px;" /> -->
+			<div class="inner_left">Workplace Culture & Status of Women Construction Labourers: a case study in Kolkata, West Bengal.            
+	<span style="float:right">-Anu Rai, Prof Ashis Sarkar</span>            
+				</div>
+              <div style="text-align:justify; color:#000; padding:7px; line-height:17px;">
+					The construction sector has the largest number of unorganized labourers in India next only to the agricultural sector, and women form almost half the workforce as unskilled labourers with no occupational mobility. Often they face serious problems/constraints related to work, viz., lack of continuity, insecurity, wage discrimination, gender and sexual harassment, unhealthy job relationship, lower wages, and poor job satisfaction Despite these, construction industry verwhelmingly attracts female workers. Poverty being the main cause, the worst affected are the single and the derelict / destitute women with children to support... <br /><br />
+			
+				<span class="read_more" style="color:#004d58; font-weight:bold; font-size:14px; float:right;">Read More..</span>
+				<br />
+				
+				</div>
+				<div class="vol-label-new">Vol 5, No 2, 2014</div>
             </div>
+            
+            
+			
+			
+			
+			<div class="clear"></div>
+        </div>
+    </div>
             <!--Total right sidebar end-->
