@@ -35,6 +35,7 @@ class Issues extends CI_Controller {
 	
 	public function index()
 	{
+        echo $data['url_path'] = $this->uri->segment(1);
 		$data['issues_after_75'] = array();
 		$data['issues_after_75'] = $this->Issues_Model->getAllIssues();
 		$data['issues_after_75_Volume_label'] = $this->Issues_Model->getCategoryAsVolume();

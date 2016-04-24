@@ -19,7 +19,8 @@ class Contact extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('include/contactus_template');
+        $data['url_path'] = $this->uri->segment(1);
+		$this->load->view('include/contactus_template', $data);
 	}
 }
 

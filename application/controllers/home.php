@@ -24,24 +24,25 @@ class Home extends CI_Controller {
 	}
 	public function index()
 	{
+        echo $data['url_path'] = $this->uri->segment(1);
 		$data['sidebar_links'] = $this->home_model->getLinks();
-                $data['tot_content'] = $this->home_model->getPageContent();
-                $data['current_issue'] = $this->home_model->getCurrentIssue();
-                $getcatecory = $this->home_model->getParentCategroyJournals();
-                $cat_array = array();
-                foreach($getcatecory as $cat){
-                    $cat_array[$cat->id] = $cat->category_name;
-                }
-                $data['pdf_parent_cat'] = $cat_array;//$this->home_model->getParentCategroyJournals();
-                
-                $get_child_arr = $this->home_model->getChildCategroyJournals();
-                $child_arr = array();
-                foreach($get_child_arr as $cat){
-                    $child_arr[$cat->id] = $cat->category_name;
-                }
-                $data['pdf_child_cat'] = $child_arr;
-                
-                $data['all_journals'] = $this->home_model->getAllPdfLinks();
+        $data['tot_content'] = $this->home_model->getPageContent();
+        $data['current_issue'] = $this->home_model->getCurrentIssue();
+        $getcatecory = $this->home_model->getParentCategroyJournals();
+        $cat_array = array();
+        foreach($getcatecory as $cat){
+            $cat_array[$cat->id] = $cat->category_name;
+        }
+        $data['pdf_parent_cat'] = $cat_array;//$this->home_model->getParentCategroyJournals();
+
+        $get_child_arr = $this->home_model->getChildCategroyJournals();
+        $child_arr = array();
+        foreach($get_child_arr as $cat){
+            $child_arr[$cat->id] = $cat->category_name;
+        }
+        $data['pdf_child_cat'] = $child_arr;
+
+        $data['all_journals'] = $this->home_model->getAllPdfLinks();
 		$this->load->view('include/home_template', $data);
 	}
 }
