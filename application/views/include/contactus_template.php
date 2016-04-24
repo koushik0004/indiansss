@@ -1,7 +1,7 @@
 <?php $this->load->view('include/header'); ?>
 
 	<!--end header-->
-            <div id="middle_col_big" style="background-color:#C0C0C0; padding:69px 0 69px 108px; width:861px;">
+            <div id="middle_col_big" >
               
               	<div class="contact_us_bg">
                 <table width="100%" border="0" style="color:#00576d; font-family:Arial, Helvetica, sans-serif; font-size:14px;">
