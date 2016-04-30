@@ -6,14 +6,14 @@
 <link href="<?php echo base_url(); ?>assats/looks/images/favicon.ico" type="image/x-icon" rel="icon" />
 <link href="<?php echo base_url(); ?>assats/looks/images/favicon.ico" type="image/x-icon" rel="shortcut icon" />
 <link href="<?php echo base_url(); ?>assats/looks/css/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
-<link href="<?php echo base_url(); ?>assats/looks/css/trontastic/jquery-ui-1.9.2.custom.min.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url(); ?>assats/looks/css/trontastic/jquery-ui.css" rel="stylesheet" type="text/css" />
 
 <link href="<?php echo base_url(); ?>assats/looks/css/style.css" rel="stylesheet" type="text/css" />
 <!--slider css-->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assats/looks/engine1/style.css" />
 <!--end slider css-->
 
-<script language="javascript" src="<?php echo base_url(); ?>assats/looks/js/jquery-1.11.3.min.js"></script>    
+<script language="javascript" src="<?php echo base_url(); ?>assats/looks/js/jquery-1.8.3.js"></script>    
 <script language="javascript" src="<?php echo base_url(); ?>assats/looks/js/jquery-ui-1.8.22.custom.min.js"></script>
 
 <?php header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0"); ?>

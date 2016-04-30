@@ -48,6 +48,36 @@
               <br />
               </p>
               <p>Ashis Sarkar (Head, Geography Dept. Presidency University, Kolkata)</p>
+                
+                 
+                <!-- Article Search -->
+                <div id="dialog-form" title="Search an Article" class="custom-dialog-form">
+                  <p class="validateTips">Enter auther name or article title.</p>
+
+                  <form>
+                    <fieldset>
+                        
+                      <label for="search_criteria">Search Criteria</label>
+                      <div data-name="search_criteria" id="search_criteria" class="ui-custom-radio">
+                          <input type="radio" id="radio1" name="radio[]" value="auther_name"><label for="radio1">Auther Name</label>
+                            <input type="radio" id="radio2" name="radio[]" checked="checked" value="article_title"><label for="radio2">Article Name</label>
+                            <input type="radio" id="radio3" name="radio[]" value="journal_name"><label for="radio3">Journal Name</label>
+                        </div>
+                        
+                      <label for="criteria">Search Criteria</label>
+                      <input type="text" name="criteria" id="criteria" placeholder="Auther name, Article title, journal title" class="text ui-widget-content ui-corner-all">
+                      
+                      <!-- Allow form submission with keyboard without duplicating the dialog button -->
+                      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+                    </fieldset>
+                  </form>
+                </div>
+                <!-- Article Search -->
+                
+                <!-- js files only for home_template.php -->
+                <script language="javascript" src="<?php echo base_url(); ?>assats/looks/js/custom-homepage-functionality.js"></script>
+                <!-- js files only for home_template.php -->
+                
             </div>
             <?php //$this->load->view($content_for_layout); ?>
             
