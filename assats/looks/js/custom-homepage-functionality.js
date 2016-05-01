@@ -1,5 +1,7 @@
 $(document).ready(function(){
     if ( $.attrFn ) { $.attrFn.text = true; }
+    
+    var baseURL = $('#global-base-url').val().trim();
     var dialog;
     
        dialog = $( "#dialog-form" ).dialog({
@@ -30,6 +32,7 @@ $(document).ready(function(){
           },
           close: function() {
             form[ 0 ].reset();
+            fromSearchText.attr('placeholder', 'Auther name, Article title, journal title');
             //allFields.removeClass( "ui-state-error" );
             //$('body').removeClass('stop-scrolling');
           }
@@ -77,9 +80,57 @@ $(document).ready(function(){
     
         /*radio button for search*/
         var radioWrapper = $('.ui-dialog div.ui-custom-radio');
+        var fromSearchText = $('#criteria');
         var allRadio = $('input[type="radio"]', radioWrapper);
         allRadio.on('click', function(){
+           fromSearchText.attr('placeholder', $(this).attr('text-data'));
            console.log($(this).val());
         });
         /*radio button for search*/
+        var availableTags = [
+          "ActionScript",
+          "AppleScript",
+          "Asp",
+          "BASIC",
+          "C",
+          "C++",
+          "Clojure",
+          "COBOL",
+          "ColdFusion",
+          "Erlang",
+          "Fortran",
+          "Groovy",
+          "Haskell",
+          "Java",
+          "JavaScript",
+          "Lisp",
+          "Perl",
+          "PHP",
+          "Python",
+          "Ruby",
+          "Scala",
+          "Scheme"
+        ];
+        $( "#criteria" ).autocomplete({
+          source: function(req, res){
+              $.ajax({
+                  url: baseURL+"home/search/",
+                  type: 'POST',
+                  dataType: "json",
+                  data: {
+                    q: req.term
+                  },
+                  success: function( data ) {
+                    res( data );
+                  }
+                });
+          },
+          minLength: 3,
+          open: function() {
+            $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+          },
+          close: function() {
+            $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+          }  
+        });
 });

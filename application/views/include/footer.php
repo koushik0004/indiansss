@@ -23,6 +23,11 @@
         <div class="footer_lower">Copyright @ IJSS 2012</div>
 
     </div>
+
+        <!-- updated for few gobal variable to access in JS -->
+        <div id="global-variables" style="display:none;">
+            <input type="text" value="<?php echo base_url(); ?>" id="global-base-url"/>
+        </div>
   </div>
  
 </div>

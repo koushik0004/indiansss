@@ -1,0 +1,8 @@
+ALTER TABLE `journals` ADD `tags` TEXT NULL DEFAULT NULL AFTER `upload_path`;
+CREATE FULLTEXT INDEX fulltext_tags ON  journals(tags);
+CREATE INDEX index_title ON journals(title);
+CREATE INDEX index_written_by ON journals(written_by);
+UPDATE `journals` jr SET jr.tags = CONCAT(jr.title, ', ', jr.written_by) WHERE 1;
+
+
+UPDATE `journals` SET tags = (SELECT CONCAT(title, ', ', written_by) FROM `journals`) WHERE 1

@@ -52,20 +52,22 @@
                  
                 <!-- Article Search -->
                 <div id="dialog-form" title="Search an Article" class="custom-dialog-form">
-                  <p class="validateTips">Enter auther name or article title.</p>
+                  <p class="validateTips">Enter Auther name or Article title to search.</p>
 
                   <form>
                     <fieldset>
                         
                       <label for="search_criteria">Search Criteria</label>
                       <div data-name="search_criteria" id="search_criteria" class="ui-custom-radio">
-                          <input type="radio" id="radio1" name="radio[]" value="auther_name"><label for="radio1">Auther Name</label>
-                            <input type="radio" id="radio2" name="radio[]" checked="checked" value="article_title"><label for="radio2">Article Name</label>
-                            <input type="radio" id="radio3" name="radio[]" value="journal_name"><label for="radio3">Journal Name</label>
+                          <input type="radio" id="radio1" name="radio[]" value="auther_name" text-data="Auther Name"><label for="radio1">Auther Name</label>
+                            <input type="radio" id="radio2" name="radio[]" checked="checked" value="article_title" text-data="Article Name"><label for="radio2">Article Name</label>
+                            <input type="radio" id="radio3" name="radio[]" value="journal_name" text-data="Journal Name"><label for="radio3">Journal Name</label>
                         </div>
-                        
-                      <label for="criteria">Search Criteria</label>
+                    
+                        <div class="ui-widget">
+                      <label for="criteria">Search Word</label>
                       <input type="text" name="criteria" id="criteria" placeholder="Auther name, Article title, journal title" class="text ui-widget-content ui-corner-all">
+                        </div>
                       
                       <!-- Allow form submission with keyboard without duplicating the dialog button -->
                       <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
