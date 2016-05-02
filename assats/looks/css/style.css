@@ -316,7 +316,7 @@ floated { padding:0; margin:10px auto;}
     color: #000;
     text-decoration: none;
 }
-.left-col-list  li a:hover {
+.left-col-list  li a:hover, .left-col-list  li a.active {
     color: #1e5799;
     text-decoration: underline;
 }
@@ -403,5 +403,80 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a4b357', end
   top: 30% !important;
 }
 /*home page dialogs*/
+
+/*debvelopped by koushik*/
+.reg-form{
+		
+		height:100%;
+		-moz-border-radius:8px ; 
+		-khtml-border-radius:8px; 
+		border-radius:8px;; 
+		-webkit-border-radius:8px;
+		font-size:14px;
+		font-family:Verdana, Geneva, sans-serif;
+		/*-moz-box-shadow: 20px 10px 15px #E0DEE2;
+		-webkit-box-shadow: 20px 10px 15px #E0DEE2;
+		box-shadow: 17px 15px 15px #E0DEE2;
+		background-color:#EDE2C9; */
+		margin:auto 0px;
+		margin-left:40px;
+}
+.reg-form input[type=text], input[type=password]{
+	width:280px; 
+	background-color:#FFF; 
+	border:#9BAAAE 2px groove;
+	height: 20px;
+	-moz-border-radius:4px ; 
+	-khtml-border-radius:4px; 
+	border-radius:4px;; 
+	-webkit-border-radius:4px;
+	padding-left:3px;
+	
+}
+.reg-form select{
+	width:280px; 
+	background-color:#FFF; 
+	border:#9BAAAE 2px groove;
+	height: 25px;
+	-moz-border-radius:4px ; 
+	-khtml-border-radius:4px; 
+	border-radius:4px;; 
+	-webkit-border-radius:4px;
+	padding-left:3px;
+}
+.reg-form textarea{
+	width:278px; 
+	background-color:#FFF; 
+	border:#9BAAAE 2px groove;
+	height: 45px;
+	-moz-border-radius:4px ; 
+	-khtml-border-radius:4px; 
+	border-radius:4px;; 
+	-webkit-border-radius:4px;
+	padding-left:3px;
+    resize: none;
+}
+.reg-form input[type=submit], input[type=button]{
+	background-color:#FFF; 
+	border:#9BAAAE 2px groove;
+	/*height:36px;
+	width:100px;*/
+	/*-moz-border-radius:4px ; 
+	-khtml-border-radius:4px; 
+	border-radius:4px; 
+	-webkit-border-radius:4px;*/
+	cursor:pointer;
+	font-size:16px;
+	font-weight:bold;
+	/*width:20px;*/
+	/*background-image:url('../images/button.png');*/
+	/*-moz-box-shadow: 10px 10px 5px #888;
+	-webkit-box-shadow: 10px 10px 5px #888;
+	box-shadow: 10px 10px 5px #888;*/
+}
+.reg-form a{text-decoration:none; color:rgba(255, 255, 255, 0.75); font-weight:bold;}
+.reg-form a:hover{color:rgba(255, 255, 255, 1);}
+.after-login-header-right{color:#FFF; font:Tahoma, Geneva, sans-serif; font-size:23px; font-weight:bold; position:absolute; z-index:1234; top:30px; right:60px;}
+/*debvelopped by koushik*/
 
 /*8981538376*/
