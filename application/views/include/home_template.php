@@ -52,21 +52,39 @@
                  
                 <!-- Article Search -->
                 <div id="dialog-form" title="Search an Article" class="custom-dialog-form">
-                  <p class="validateTips">Enter Auther name or Article title to search.</p>
-
+                  <!-- <p class="validateTips">Enter Auther name or Article title to search.</p> -->
+                    
+                    
+                    <div class="ui-widget">
+                        <div class="ui-state-info ui-corner-all" style="padding: 0 .7em;"> 
+                            <p>
+                                <span class="ui-icon ui-icon-info" 
+                                    style="float: left; margin-right: .3em;"></span>
+                                Enter Author name or Article title to search..
+                            </p>
+                        </div>
+                        <div class="ui-state-info ui-corner-all" style="padding: 0 .7em;"> 
+                            <p>
+                                <span class="ui-icon ui-icon-info" 
+                                    style="float: left; margin-right: .3em;"></span>
+                                Type atlease 3 characters for the search autocomplete.
+                            </p>
+                        </div>
+                    </div>
+                    
                   <form>
                     <fieldset>
                         
                       <label for="search_criteria">Search Criteria</label>
                       <div data-name="search_criteria" id="search_criteria" class="ui-custom-radio">
-                          <input type="radio" id="radio1" name="radio[]" value="auther_name" text-data="Auther Name"><label for="radio1">Auther Name</label>
-                            <input type="radio" id="radio2" name="radio[]" checked="checked" value="article_title" text-data="Article Name"><label for="radio2">Article Name</label>
+                          <input type="radio" id="radio1" name="radio[]" value="author_name" text-data="Author Name" checked="checked"><label for="radio1">Auther Name</label>
+                            <input type="radio" id="radio2" name="radio[]" value="article_title" text-data="Article Name"><label for="radio2">Article Name</label>
                             <input type="radio" id="radio3" name="radio[]" value="journal_name" text-data="Journal Name"><label for="radio3">Journal Name</label>
                         </div>
                     
                         <div class="ui-widget">
                       <label for="criteria">Search Word</label>
-                      <input type="text" name="criteria" id="criteria" placeholder="Auther name, Article title, journal title" class="text ui-widget-content ui-corner-all">
+                      <input type="text" name="criteria" id="criteria" placeholder="Author name, Article title, journal title" class="text ui-widget-content ui-corner-all">
                         </div>
                       
                       <!-- Allow form submission with keyboard without duplicating the dialog button -->

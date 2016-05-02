@@ -46,8 +46,11 @@ class Home extends CI_Controller {
 		$this->load->view('include/home_template', $data);
 	}
     
-    public function search(){
-        $arr = [
+    public function search(){       
+        $search_str = $_REQUEST['q'];
+        $search_attr = $_REQUEST['attrb'];
+        $arr[] = "No record found";
+        /*$arr = [
           "ActionScript",
           "AppleScript",
           "Asp",
@@ -69,8 +72,21 @@ class Home extends CI_Controller {
           "Python",
           "Ruby",
           "Scala",
-          "Scheme"
-        ];
+          "Scheme",
+          $search_str,
+          $search_attr
+        ];*/
+        $generated_rslt = $this->home_model->searchJournal($search_str, $search_attr);
+        ///echo $str = $this->db->last_query();
+        $attrSpecification = array(
+            'author_name'=>'written_by',
+            'article_title'=>'title',
+            'journal_name'=>'title'
+        );
+        //print_r($generated_rslt);
+        for($i=0; $i < count($generated_rslt); $i++){
+            $arr[$i] = $generated_rslt[$i][$attrSpecification[$search_attr]];
+        }
         echo json_encode($arr);
     }
 }

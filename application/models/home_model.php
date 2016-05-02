@@ -65,10 +65,33 @@ if(!defined('BASEPATH')){exit('No direct Script Access Allowed!');}
             );
             $query = $this->db->get_where('pdfcategories', $conditions);
 		
-		if($query->num_rows()>0){
-			return $query->result();
-		}
+            if($query->num_rows()>0){
+                return $query->result();
+            }
         }
+     
+     
+        /*updated by 2-05-2016*/
+        public function searchJournal($search_str, $search_attr){
+            $attrSpecification = array(
+                'author_name'=>'written_by',
+                'article_title'=>'title',
+                'journal_name'=>'title'
+            );
+            $conditions = array(
+                'isblocked'=>'0',
+                'isdeleted'=>'0',
+            );
+            
+            $this->db->select($attrSpecification[$search_attr]);
+            $this->db->where($conditions);
+            $this->db->like($attrSpecification[$search_attr], $search_str, 'after');
+            $query = $this->db->get('journals');
+            if($query->num_rows()>0){
+                return $query->result_array();
+            }
+        }
+        /*updated by 2-05-2016*/
         
         
  }

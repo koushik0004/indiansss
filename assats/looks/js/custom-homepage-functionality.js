@@ -2,6 +2,7 @@ $(document).ready(function(){
     if ( $.attrFn ) { $.attrFn.text = true; }
     
     var baseURL = $('#global-base-url').val().trim();
+    var defaultCheckedRadio = '';
     var dialog;
     
        dialog = $( "#dialog-form" ).dialog({
@@ -11,6 +12,9 @@ $(document).ready(function(){
           modal: true,
           open: function(){
                //$( "#search_criteria" ).selectmenu();
+              var radioWrapper = $('.ui-dialog div.ui-custom-radio');
+              var onlyCheckedRadio = $('input[type="radio"]:checked', radioWrapper);
+              defaultCheckedRadio = onlyCheckedRadio;
            },
           //position: "center",
           dialogClass: 'fixed-dialog',
@@ -32,7 +36,7 @@ $(document).ready(function(){
           },
           close: function() {
             form[ 0 ].reset();
-            fromSearchText.attr('placeholder', 'Auther name, Article title, journal title');
+            fromSearchText.attr('placeholder', 'Author name, Article title, journal title');
             //allFields.removeClass( "ui-state-error" );
             //$('body').removeClass('stop-scrolling');
           }
@@ -83,10 +87,16 @@ $(document).ready(function(){
         var fromSearchText = $('#criteria');
         var allRadio = $('input[type="radio"]', radioWrapper);
         allRadio.on('click', function(){
+           defaultCheckedRadio = $(this);    
            fromSearchText.attr('placeholder', $(this).attr('text-data'));
            console.log($(this).val());
         });
         /*radio button for search*/
+        /* getting only checked radio button */
+        
+        
+        /* getting only checked radio button */
+    
         var availableTags = [
           "ActionScript",
           "AppleScript",
@@ -118,7 +128,8 @@ $(document).ready(function(){
                   type: 'POST',
                   dataType: "json",
                   data: {
-                    q: req.term
+                    q: req.term,
+                    attrb: defaultCheckedRadio.val()  
                   },
                   success: function( data ) {
                     res( data );
