@@ -477,6 +477,43 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a4b357', end
 .reg-form a{text-decoration:none; color:rgba(255, 255, 255, 0.75); font-weight:bold;}
 .reg-form a:hover{color:rgba(255, 255, 255, 1);}
 .after-login-header-right{color:#FFF; font:Tahoma, Geneva, sans-serif; font-size:23px; font-weight:bold; position:absolute; z-index:1234; top:30px; right:60px;}
+
+/*nano scroller*/
+.past-issue-dialog { background: #bba; width: 600px; }
+.past-issue-dialog .past-issues-accordian-list{ height: 130px; overflow-y: scroll;}
+.past-issue-dialog .article-list{height: 70px; overflow-y: scroll; width:95%; overflow-x: hidden;}
+.article-list::-webkit-scrollbar{
+    width:5px;
+    background-color:#cccccc;
+}
+.article-list::-moz-scrollbar{
+    width:5px;
+    background-color:#cccccc;
+}
+.article-list::-webkit-scrollbar-thumb{
+    background-color:#B03C3F;
+    border-radius:10px;
+}
+.article-list::-moz-scrollbar-thumb{
+    background-color:#B03C3F;
+    border-radius:10px;
+}
+.article-list::-webkit-scrollbar-thumb:hover{
+    background-color:#BF4649;
+    border:1px solid #333333;
+}
+.article-list::-webkit-scrollbar-thumb:active{
+    background-color:#A6393D;
+    border:1px solid #333333;
+} 
+.article-list::-webkit-scrollbar-track{
+    border:1px gray solid;
+    border-radius:10px;
+    -webkit-box-shadow:0 0 6px gray inset;
+} 
+/*nano scroller*/
+
+
 /*debvelopped by koushik*/
 
 /*8981538376*/

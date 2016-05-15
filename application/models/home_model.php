@@ -85,7 +85,7 @@ if(!defined('BASEPATH')){exit('No direct Script Access Allowed!');}
             
             $this->db->select($attrSpecification[$search_attr]);
             $this->db->where($conditions);
-            $this->db->like($attrSpecification[$search_attr], $search_str, 'after');
+            $this->db->like($attrSpecification[$search_attr], $search_str, 'both');
             $query = $this->db->get('journals');
             if($query->num_rows()>0){
                 return $query->result_array();

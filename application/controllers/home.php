@@ -41,6 +41,7 @@ class Home extends CI_Controller {
             $child_arr[$cat->id] = $cat->category_name;
         }
         $data['pdf_child_cat'] = $child_arr;
+        $data['current_year_past_issue'] = '2016';
 
         $data['all_journals'] = $this->home_model->getAllPdfLinks();
 		$this->load->view('include/home_template', $data);
