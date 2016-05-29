@@ -101,7 +101,7 @@
                             <p>
                                 <span class="ui-icon ui-icon-info" 
                                     style="float: left; margin-right: .3em;"></span>
-                                Please select yaer and issue..
+                                Please select year and issue..
                             </p>
                         </div>
                         <div class="ui-state-info ui-corner-all" style="padding: 0 .7em;"> 
@@ -144,8 +144,41 @@
                 </div>
                 <!-- Past Issues dialog -->
                 
-                <!-- Article Search -->
-                <!-- Article Search -->
+                <!-- Current Issue -->
+                <div id="dialog-current-issues" title="Current Issues" class="custom-dialog-form current-issue-dialog">
+                    <div class="ui-widget">
+                        <div class="ui-state-info ui-corner-all" style="padding: 0 .7em;"> 
+                            <p>
+                                <span class="ui-icon ui-icon-info" 
+                                    style="float: left; margin-right: .3em;"></span>
+                                All the listed issues are current release
+                            </p>
+                        </div>
+                        <div class="ui-state-info ui-corner-all" style="padding: 0 .7em;"> 
+                            <p>
+                                <span class="ui-icon ui-icon-info" 
+                                    style="float: left; margin-right: .3em;"></span>
+                                <?php echo $only_current_journal[0]['under_category']; ?>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="dialog-body-content">
+                        <?php if(isset($only_current_journal) && count($only_current_journal)>0): ?>
+                        <ul class="list-issues">
+                            <?php foreach($only_current_journal as $key=>$val): ?>
+                                <li>
+                                    <a href="<?php echo base_url($val['upload_path']); ?>" class="btn buy-btn ui-corner-all">
+                                        <span class="content top"><?php echo ((strlen($val['title'])>60)?substr($val['title'], 0, 60).'...':$val['title']) ; ?></span>
+                                        <span class="content buttom"><?php echo $val['written_by']; ?></span>
+                                      </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                        <?php endif; ?>
+                    </div>
+                    <?php //print_r($only_current_journal); ?>
+                </div>
+                <!-- Current Issue -->
                 
                 <!-- js files only for home_template.php -->
                 <script language="javascript" src="<?php echo base_url(); ?>assats/looks/js/custom-homepage-functionality.js"></script>

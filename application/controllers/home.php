@@ -42,6 +42,7 @@ class Home extends CI_Controller {
         }
         $data['pdf_child_cat'] = $child_arr;
         $data['current_year_past_issue'] = '2016';
+        $data['only_current_journal'] = $this->home_model->onluHomePageCurrentIssues();
 
         $data['all_journals'] = $this->home_model->getAllPdfLinks();
 		$this->load->view('include/home_template', $data);

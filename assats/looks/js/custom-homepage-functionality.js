@@ -53,13 +53,6 @@ $(document).ready(function(){
           event.preventDefault();
           addUser();
         });
-
-        $( "#current-issue" )
-            .on( "click", function(event) {
-            dialog.dialog( "open" );
-            event.preventDefault();
-            //return false;
-        });
         
         $( "#search-article" )
             .on( "click", function(event) {
@@ -238,4 +231,43 @@ $(document).ready(function(){
 
         }
         /*past issues dialog operation*/
+    
+    
+        /*current issue dialog*/
+        var dialogCurrentIssue = $( "#dialog-current-issues" ).dialog({
+              autoOpen: false,
+              height: 520,
+              width: 650,
+              modal: true,
+              resizable: false,
+              //position: "center",
+              dialogClass: 'fixed-dialog',
+              show: {
+                effect: "fold",
+                direction: "down",
+                duration: 1000
+              },
+              hide: {
+                effect: "explode",
+                duration: 1000
+              },
+              buttons: {
+                "Cancel": function() {
+                  dialogCurrentIssue.dialog( "close" );
+                    //e.preventDefault();
+                }
+              },
+              close: function() {
+                //form[ 0 ].reset();
+                //allFields.removeClass( "ui-state-error" );
+                //$('body').removeClass('stop-scrolling');
+              }
+            });
+        $( "#current-issue" )
+            .on( "click", function(event) {
+            dialogCurrentIssue.dialog( "open" );
+            event.preventDefault();
+            //return false;
+        });
+        /*current issue dialog*/
 });

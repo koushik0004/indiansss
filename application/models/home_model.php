@@ -51,10 +51,10 @@ if(!defined('BASEPATH')){exit('No direct Script Access Allowed!');}
                 'parent_id'=>0,
             );
             $query = $this->db->get_where('pdfcategories', $conditions);
-		
-		if($query->num_rows()>0){
-			return $query->result();
-		}
+
+            if($query->num_rows()>0){
+                return $query->result();
+            }
         }
         
         public function getChildCategroyJournals(){
@@ -92,6 +92,21 @@ if(!defined('BASEPATH')){exit('No direct Script Access Allowed!');}
             }
         }
         /*updated by 2-05-2016*/
+     
+        /*updated by 29-5-2016*/
+        public function onluHomePageCurrentIssues(){
+            $this->db->select(array('j.*', 'c.category_name as under_category', 'c.parent_id as parent_category', 'c.id as cat_id'));
+            $this->db->from('journals j');
+            $this->db->join('pdfcategories c', 'j.pdfcategory_id = c.id', 'left');
+            //$this->db->where('j.isdeleted', '0');
+            $this->db->where('c.id IN (SELECT MAX(id) FROM pdfcategories)', NULL, FALSE);
+			$this->db->where(array('j.isdeleted'=>'0', 'j.isblocked'=>'0'));
+            $this->db->order_by('j.pdfcategory_id', 'j.id');
+            $query = $this->db->get();
+            //echo $this->db->last_query();
+            return $query->result_array();
+        }
+        /*updated by 29-5-2016*/
         
         
  }
