@@ -236,7 +236,7 @@ $(document).ready(function(){
         /*current issue dialog*/
         var dialogCurrentIssue = $( "#dialog-current-issues" ).dialog({
               autoOpen: false,
-              height: 520,
+              height: 540,
               width: 650,
               modal: true,
               resizable: false,
