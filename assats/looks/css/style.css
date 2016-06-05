@@ -546,6 +546,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a4b357', end
 }
 /*fassionable list 29-5-2016*/
 
+/*loader image 5-6-2016*/
+section.ajax-loading {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+/*loader image 5-6-2016*/
 /*debvelopped by koushik*/
 
 /*8981538376*/

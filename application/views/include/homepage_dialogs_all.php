@@ -134,26 +134,32 @@
                             <p>
                                 <span class="ui-icon ui-icon-info" 
                                     style="float: left; margin-right: .3em;"></span>
-                                All the listed issues are current release
+                                Search result is according to the search criteria
                             </p>
                         </div>
                         <div class="ui-state-info ui-corner-all" style="padding: 0 .7em;"> 
                             <p>
                                 <span class="ui-icon ui-icon-info" 
                                     style="float: left; margin-right: .3em;"></span>
-                                Total Search Result (<span id="search-count"></span>)
+                                Total Search Result (<span id="search-count">0</span>)
                             </p>
                         </div>
                     </div>
                     <div class="dialog-body-content">
                         <ul class="list-issues"></ul>
+                        <section class="ajax-loading">
+                            <figure>
+                                <img class="loaging-img" src="<?php echo base_url(); ?>assats/looks/images/cube.gif" />
+                                <figcaption>Loading, please wait...</figcaption>
+                            </figure>
+                        </section>
                     </div>
                 </div>
                 <!-- Search result -->
                 
 
                 <!-- dummy data for list searched articles -->
-                <div id="listed-searched-article">
+                <div id="listed-searched-article" style="display: none;">
                     <li>
                         <a href="@upload_path" class="btn buy-btn ui-corner-all">
                             <span class="content top">@article_title</span>
@@ -161,6 +167,7 @@
                           </a>
                     </li>
                 </div>
+                
                 <!-- -->
                 <!-- js files only for home_template.php -->
                 <script language="javascript" src="<?php echo base_url(); ?>assats/looks/js/custom-homepage-functionality.js"></script>

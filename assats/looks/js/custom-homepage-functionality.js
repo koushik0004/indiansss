@@ -33,8 +33,17 @@ $(document).ready(function(){
               dialogSearchResult.dialog( "close" );
                 //e.preventDefault();
             }
+          },
+          close: function(){
+              var appendPlace = $('ul.list-issues', bodyContent); 
+              appendPlace.html('');
+              $('#search-count', dialogSearchResult).text('0');
+              $('section.ajax-loading', bodyContent).fadeIn();
           }
         });
+        var bodyContent = $('div.dialog-body-content', dialogSearchResult);
+        var loadingContent = $('#loading-content').html();
+        var searchDummy = $('#listed-searched-article').html();
         /*search result dialog*/
     
        dialog = $( "#dialog-form" ).dialog({
@@ -139,7 +148,25 @@ $(document).ready(function(){
                     q: formDataSubmit
                   },
                   success: function( data ) {
+                    //searchDummy
+                    var appendHTML = '';
+                    var appendPlace = $('ul.list-issues', bodyContent); 
+                    data.return_arr.forEach(function(single, indx){
+                        appendHTML += searchDummy.replace('@upload_path', single.upload_path)
+                                                .replace('@article_title', single.title)
+                                                .replace('@auther', single.written_by);
+                    });
                     console.log(data);
+                    appendPlace.html(appendHTML);
+                    $('#search-count', dialogSearchResult).text(data.total_search_record);
+                    $('section.ajax-loading', bodyContent).fadeOut();
+                  },
+                  beforeSend: function(){
+                      dialog.dialog("close");
+                      setTimeout(function(){
+                          dialogSearchResult.dialog("open");
+                      }, 500);
+                      
                   }
             });
         }
