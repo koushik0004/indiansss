@@ -72,7 +72,7 @@ if(!defined('BASEPATH')){exit('No direct Script Access Allowed!');}
      
      
         /*updated by 2-05-2016*/
-        public function searchJournal($search_str, $search_attr){
+        public function searchJournal($search_str, $search_attr, $articleSearch = FALSE){
             $attrSpecification = array(
                 'author_name'=>'written_by',
                 'article_title'=>'title',
@@ -82,8 +82,8 @@ if(!defined('BASEPATH')){exit('No direct Script Access Allowed!');}
                 'isblocked'=>'0',
                 'isdeleted'=>'0',
             );
-            
-            $this->db->select($attrSpecification[$search_attr]);
+            $searchAttrs = $articleSearch ? '*' : $attrSpecification[$search_attr];
+            $this->db->select($searchAttrs);
             $this->db->where($conditions);
             $this->db->like($attrSpecification[$search_attr], $search_str, 'both');
             $query = $this->db->get('journals');
@@ -108,5 +108,7 @@ if(!defined('BASEPATH')){exit('No direct Script Access Allowed!');}
         }
         /*updated by 29-5-2016*/
         
+        /*updated by 5-6-2016*/
+        /*updated by 5-6-2016*/
         
  }

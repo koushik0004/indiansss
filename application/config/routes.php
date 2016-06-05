@@ -39,6 +39,7 @@
 */
 
 $route['default_controller'] = "home";
+$route['home/search-article'] = "home/searchArticleByCriteria";
 $route['404_override'] = '';
 
 $route['administrator'] = 'administrator/login';

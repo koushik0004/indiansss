@@ -46,7 +46,7 @@ been an important income source for the locals-->
 					<span class="left-col-list-heading">Manuscript Management</span>
 					<ul class="left-col-list">
 						<li><a href="">Submit a manuscript</a></li>
-						<li><a href="">Reviewers' Sign In</a></li>
+						<li><a href="<?php echo site_url('login/'); ?>">Reviewers' Sign In</a></li>
 						<li><a href="<?php echo site_url('login/signup'); ?>">Member Registration</a></li>
 						<li><a href="<?php echo site_url('login/'); ?>">Members' Sign In</a></li>
 						<li><a href="<?php echo site_url('rules/'); ?>">Authers' Rule Book</a></li>

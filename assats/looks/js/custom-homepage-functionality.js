@@ -10,19 +10,39 @@ $(document).ready(function(){
         $( "div.ui-custom-radio" ).buttonset();
         /*radio all all search*/
     
+        /*search result dialog*/
+        dialogSearchResult = $( "#dialog-search-result" ).dialog({
+          autoOpen: false,
+          height: 540,
+          width: 650,
+          modal: true,
+          resizable: false,
+          //position: "center",
+          dialogClass: 'fixed-dialog',
+          show: {
+            effect: "fold",
+            direction: "down",
+            duration: 1000
+          },
+          hide: {
+            effect: "explode",
+            duration: 1000
+          },
+          buttons: {
+            "Cancel": function() {
+              dialogSearchResult.dialog( "close" );
+                //e.preventDefault();
+            }
+          }
+        });
+        /*search result dialog*/
+    
        dialog = $( "#dialog-form" ).dialog({
           autoOpen: false,
           height: 400,
           width: 550,
           modal: true,
           resizable: false,
-          open: function(){
-               //$( "#search_criteria" ).selectmenu();
-              var radioWrapper = $('.ui-dialog div.ui-custom-radio.search-radio');
-              var onlyCheckedRadio = $('input[type="radio"]:checked', radioWrapper);
-              defaultCheckedRadio = onlyCheckedRadio;
-              fromSearchText.attr('placeholder', 'Author name, Article title, journal title');
-           },
           //position: "center",
           dialogClass: 'fixed-dialog',
           show: {
@@ -42,17 +62,12 @@ $(document).ready(function(){
             }
           },
           close: function() {
-            form[ 0 ].reset();
             fromSearchText.attr('placeholder', 'Author name, Article title, journal title');
             //allFields.removeClass( "ui-state-error" );
             //$('body').removeClass('stop-scrolling');
           }
         });
 
-        form = dialog.find( "form" ).on( "submit", function( event ) {
-          event.preventDefault();
-          addUser();
-        });
         
         $( "#search-article" )
             .on( "click", function(event) {
@@ -65,9 +80,7 @@ $(document).ready(function(){
             dialog.dialog( "open" );
             event.preventDefault();
         });
-        function SearchJournal(){
-            
-        }
+        
         //console.log($( "#search_criteria" ).length);
         //$( "#search_criteria" ).buttonset();
     
@@ -84,6 +97,53 @@ $(document).ready(function(){
         });
         /*radio button for search*/
         /* getting only checked radio button */
+        /*getting search button*/
+        var buttonSetwrapper = $('div.ui-dialog-buttonset', $( "#dialog-form" ).next());
+        var searchButton = $('button:first-child', buttonSetwrapper);
+        var optionSearchArticle = {
+            open: function(){
+                      var radioWrapper = $('.ui-dialog div.ui-custom-radio.search-radio');
+                      var onlyCheckedRadio = $('input[type="radio"]:checked', radioWrapper);
+                      defaultCheckedRadio = onlyCheckedRadio;
+                      fromSearchText.attr('placeholder', 'Author name, Article title, journal title');
+                      console.log(defaultCheckedRadio.val());
+
+                      /*making disabled find button by default*/
+                      searchButton.addClass('ui-state-disabled');
+                      /*making disabled find button by default*/
+                   }
+            
+        };
+        $('#dialog-form').dialog('option', 'open', optionSearchArticle.open);
+        fromSearchText.on('keyup', function(evt){
+            var self = $(this);
+            /*making enabled the find button*/
+            if(self.val().length>=3){
+                searchButton.removeClass('ui-state-disabled');
+            }else{
+                searchButton.addClass('ui-state-disabled');
+            }
+            /*making enabled the find button*/
+        });
+        function SearchJournal(own){
+            var _self = $(own.target).parent('button');
+            var gettingForm = $('form', _self.closest('div.ui-dialog-buttonpane').prev('div.ui-dialog-content'));
+            var formDataSubmit = gettingForm.serializeArray();
+            //console.log(gettingForm.serializeArray());
+            //console.log(_self.attr('class'));
+            $.ajax({
+                  url: baseURL+"home/search-article/",
+                  type: 'POST',
+                  dataType: "json",
+                  data: {
+                    q: formDataSubmit
+                  },
+                  success: function( data ) {
+                    console.log(data);
+                  }
+            });
+        }
+        /*getting search button*/
         
         
         /* getting only checked radio button */

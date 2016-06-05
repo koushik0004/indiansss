@@ -91,6 +91,29 @@ class Home extends CI_Controller {
         }
         echo json_encode($arr);
     }
+    
+    public function searchArticleByCriteria(){
+        $total_criteria = $_REQUEST['q'];
+        $attrSpecification = array(
+            'author_name'=>'written_by',
+            'article_title'=>'title',
+            'journal_name'=>'title'
+        );
+        $arr = array('0'=>'No Record Found');
+        $name_value_pair = array();
+        foreach($total_criteria as $single){
+            $name_value_pair[$single['name']] = $single['value'];
+        }
+        $generated_rslt = $this->home_model->searchJournal($name_value_pair['criteria'], $name_value_pair['radio'], TRUE); //making articleSearch being TRUE
+        for($i=0; $i < count($generated_rslt); $i++){
+            $arr[$i] = array(
+                'title'=>$generated_rslt[$i]['title'],
+                'written_by'=>$generated_rslt[$i][$attrSpecification[$name_value_pair['radio']]],
+                'upload_path'=>base_url().$generated_rslt[$i]['upload_path']
+           );
+        }
+        echo json_encode(array('return_arr'=>$arr));
+    }
 }
 
 /* End of file welcome.php */
