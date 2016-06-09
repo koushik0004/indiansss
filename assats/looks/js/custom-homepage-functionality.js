@@ -72,6 +72,7 @@ $(document).ready(function(){
           },
           close: function() {
             fromSearchText.attr('placeholder', 'Author name, Article title, journal title');
+            fromSearchText.val('');
             //allFields.removeClass( "ui-state-error" );
             //$('body').removeClass('stop-scrolling');
           }
@@ -256,7 +257,7 @@ $(document).ready(function(){
                 }
               },
               close: function() {
-                form[ 0 ].reset();
+                $('form', $( "#dialog-pass-issues" ))[0].reset();
                 //allFields.removeClass( "ui-state-error" );
                 //$('body').removeClass('stop-scrolling');
               }
