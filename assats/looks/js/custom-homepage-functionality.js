@@ -358,4 +358,34 @@ $(document).ready(function(){
             //return false;
         });
         /*current issue dialog*/
+    
+    
+    
+        /*managing userlogin for pdf and manuscript upload issues page*/
+        //data-login="checkLoggedin"
+        var LinkClickManagement = function(path){
+            $.post(
+                baseURL+'login/loggedIn',
+                {data : 'check'},
+                function(data){
+                    if(data.responseText == 'logged_in'){
+                        var bob = window.open('', '_blank');
+                        bob.location = path;
+                    }
+                    else{
+
+                        window.location.href = baseURL+'login.html';
+                    }
+                },
+                'json'
+            );
+        }
+        $(document).off('click').on('click', 'a[data-login="checkLoggedin"]', function(evt){
+            var path = $(this).attr('href');
+            console.log(path);
+            LinkClickManagement(path);
+            evt.preventDefault();
+
+        });
+        /*managing userlogin for pdf and manuscript upload issues page*/
 });

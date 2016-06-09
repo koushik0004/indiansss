@@ -163,7 +163,7 @@
                         <ul class="menu_link">
                             <li><a href="<?php echo site_url('home/'); ?>" <?php echo (isset($url_path) && ($url_path == 'home' || $url_path == ''))?'class="active"':''; ?>>Home</a></li>
                             <li><a href="<?php echo site_url('contact/'); ?>" <?php echo (isset($url_path) && $url_path == 'contact')?'class="active"':''; ?>>Contact Us</a></li>
-                            <li><a href="<?php echo site_url('issues/'); ?>" <?php echo (isset($url_path) && $url_path == 'issues')?'class="active"':''; ?>>Indian Journal of Spatial Science</a></li>
+                            <li><a href="<?php echo site_url('issues/'); ?>" <?php echo (isset($url_path) && $url_path == 'issues')?'class="active"':''; ?> data-login="checkLoggedin">Indian Journal of Spatial Science</a></li>
                         </ul>
                     </div>
 </div>

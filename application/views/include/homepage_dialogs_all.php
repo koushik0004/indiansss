@@ -114,7 +114,7 @@
                         <ul class="list-issues">
                             <?php foreach($only_current_journal as $key=>$val): ?>
                                 <li>
-                                    <a href="<?php echo base_url($val['upload_path']); ?>" class="btn buy-btn ui-corner-all">
+                                    <a href="<?php echo base_url($val['upload_path']); ?>" class="btn buy-btn ui-corner-all" data-login="checkLoggedin">
                                         <span class="content top"><?php echo ((strlen($val['title'])>60)?substr($val['title'], 0, 60).'...':$val['title']) ; ?></span>
                                         <span class="content buttom"><?php echo $val['written_by']; ?></span>
                                       </a>
@@ -161,7 +161,7 @@
                 <!-- dummy data for list searched articles -->
                 <div id="listed-searched-article" style="display: none;">
                     <li>
-                        <a href="@upload_path" class="btn buy-btn ui-corner-all">
+                        <a href="@upload_path" class="btn buy-btn ui-corner-all" data-login="checkLoggedin">
                             <span class="content top">@article_title</span>
                             <span class="content buttom">@auther</span>
                           </a>
