@@ -147,7 +147,7 @@ $(document).ready(function(){
             //console.log(gettingForm.serializeArray());
             //console.log(_self.attr('class'));
             $.ajax({
-                  url: baseURL+"home/search-article/",
+                  url: gettingForm.prop('action'),
                   type: 'POST',
                   dataType: "json",
                   data: {
@@ -330,9 +330,9 @@ $(document).ready(function(){
             var gettingForm = $('form', _self.closest('div.ui-dialog-buttonpane').prev('div.ui-dialog-content'));
             var formDataSubmit = gettingForm.serializeArray();
             console.log(gettingForm.serializeArray());
-            console.log(gettingForm.attr('action'));
+            console.log(gettingForm.prop('action'));
             $.ajax({
-                  url: gettingForm.attr('action'),
+                  url: gettingForm.prop('action'),
                   type: 'POST',
                   dataType: "json",
                   data: {
