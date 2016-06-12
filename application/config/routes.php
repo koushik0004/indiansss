@@ -41,6 +41,7 @@
 $route['default_controller'] = "home";
 $route['home/search-article'] = "home/searchArticleByCriteria";
 $route['home/search-past-issue'] = "home/searchIssuesByCriteria";
+$route['member/submit-new-manuscript'] = "login/submitManuscript";
 $route['404_override'] = '';
 
 $route['administrator'] = 'administrator/login';

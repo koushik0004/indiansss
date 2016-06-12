@@ -413,22 +413,20 @@ $(document).ready(function(){
                 function(data){
                     if(data.responseText == 'logged_in'){
                         var bob = window.open('', '_blank');
-                        bob.location = path;
+                        bob.location.href = path;
                     }
                     else{
-
                         window.location.href = baseURL+'login.html';
                     }
                 },
                 'json'
             );
-        }
+        };
         $(document).off('click').on('click', 'a[data-login="checkLoggedin"]', function(evt){
+            evt.preventDefault();
             var path = $(this).attr('href');
             console.log(path);
             LinkClickManagement(path);
-            evt.preventDefault();
-
         });
         /*managing userlogin for pdf and manuscript upload issues page*/
 });

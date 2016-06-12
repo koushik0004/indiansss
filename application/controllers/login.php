@@ -248,4 +248,12 @@ class Login extends CI_Controller{
 			return;
 			
 		}
+    
+    
+        /*updated by 12-6-2016*/
+        public function submitManuscript(){
+            $data['content_for_layout'] = 'submit_manuscript';
+            $this->load->view('include/template', $data);	
+        }
+        /*updated by 12-6-2016*/
 }
