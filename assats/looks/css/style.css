@@ -402,6 +402,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a4b357', end
   position: fixed;
   top: 30% !important;
 }
+.fixed-dialog-top-positioned{
+  position: fixed;
+  top: 15% !important;
+}
 /*home page dialogs*/
 
 /*debvelopped by koushik*/

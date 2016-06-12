@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     
-                  <form name="article-search">
+                  <form name="article-search" action="<?php echo base_url();?>home/search-article">
                     <fieldset>
                         
                       <label for="search_criteria">Search Criteria</label>
@@ -69,19 +69,19 @@
                     
                     
                     
-                  <form name="past-issue-search">
+                  <form name="past-issue-search" action="<?php echo base_url();?>home/search-past-issue">
                     <fieldset>
                         
                       <label for="search_criteria_past">Search Criteria</label>
                       <div data-name="search_criteria" id="search_criteria_past" class="ui-custom-radio past-issue-radio">
-                          <input type="radio" id="radio_summer" name="radio" value="Summer Issue" text-data="Summer Issue" checked="checked"><label for="radio_summer">Summer Issue</label>
-                            <input type="radio" id="radio_winter" name="radio" value="Winter Issue" text-data="Winter Issue"><label for="radio_winter">Winter Issue</label>
+                          <input type="radio" id="radio_summer" name="category_name" value="Summer Issue" text-data="Summer Issue" checked="checked"><label for="radio_summer">Summer Issue</label>
+                            <input type="radio" id="radio_winter" name="category_name" value="Winter Issue" text-data="Winter Issue"><label for="radio_winter">Winter Issue</label>
                             
                         </div>
                     
                         <div class="ui-widget">
                       <label for="criteria_past">Search Word</label>
-                      <input type="text" name="issue_year" id="issue_year" placeholder="Issue year (in YYYY format only, 2010)" class="text ui-widget-content ui-corner-all criteria-text">
+                      <input type="text" name="issueing_year" id="issue_year" placeholder="Issue year (in YYYY format only, 2010)" class="text ui-widget-content ui-corner-all criteria-text">
                         </div>
                       
                       <!-- Allow form submission with keyboard without duplicating the dialog button -->

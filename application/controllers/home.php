@@ -114,6 +114,24 @@ class Home extends CI_Controller {
         }
         echo json_encode(array('return_arr'=>$arr, 'total_search_record'=>count($generated_rslt)));
     }
+    
+    public function searchIssuesByCriteria(){
+        $total_criteria = $_REQUEST['q'];
+        $arr = array('0'=>'No Record Found');
+        $name_value_pair = array();
+        foreach($total_criteria as $single){
+            $name_value_pair[$single['name']] = $single['value'];
+        }
+        $generated_rslt = $this->home_model->searchPastIssue($name_value_pair); 
+        for($i=0; $i < count($generated_rslt); $i++){
+            $arr[$i] = array(
+                'title'=>((strlen($generated_rslt[$i]['title'])>60)?substr($generated_rslt[$i]['title'], 0, 60).'...':$generated_rslt[$i]['title']),
+                'written_by'=>$generated_rslt[$i]['written_by'],
+                'upload_path'=>base_url().$generated_rslt[$i]['upload_path']
+           );
+        }
+        echo json_encode(array('return_arr'=>$arr, 'total_search_record'=>count($generated_rslt), 'last_query'=>$this->db->last_query()));
+    }
 }
 
 /* End of file welcome.php */

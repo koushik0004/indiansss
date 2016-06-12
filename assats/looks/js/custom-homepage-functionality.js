@@ -18,7 +18,7 @@ $(document).ready(function(){
           modal: true,
           resizable: false,
           //position: "center",
-          dialogClass: 'fixed-dialog',
+          dialogClass: 'fixed-dialog-top-positioned',
           show: {
             effect: "fold",
             direction: "down",
@@ -135,6 +135,11 @@ $(document).ready(function(){
             }
             /*making enabled the find button*/
         });
+        /*disabling form submit*/
+        $( "#dialog-form" ).on('submit', 'form', function(evt){
+           return false; 
+        });
+        /*disabling form submit*/
         function SearchJournal(own){
             var _self = $(own.target).parent('button');
             var gettingForm = $('form', _self.closest('div.ui-dialog-buttonpane').prev('div.ui-dialog-content'));
@@ -301,7 +306,7 @@ $(document).ready(function(){
             var self = $(this);
             var inputYr = parseInt($('#issue_year', $('#dialog-pass-issues')).val());
             if(inputYr>=parseInt(lastYrOfPastIssueMin.text()) && inputYr<=parseInt(lastYrOfPastIssueMax.text())){
-                console.log('data send')
+                console.log('data send');
             }else{
                 yrErrorMsg.fadeIn('slow');
                 $('#issue_year', $('#dialog-pass-issues')).focus();
@@ -315,8 +320,46 @@ $(document).ready(function(){
             event.preventDefault();
             //return false;
         });
-        function FindJournal(){
-
+        /*disabling form submit*/
+        $( "#dialog-pass-issues" ).on('submit', 'form', function(evt){
+           return false; 
+        });
+        /*disabling form submit*/
+        function FindJournal(own){
+            var _self = $(own.target).parent('button');
+            var gettingForm = $('form', _self.closest('div.ui-dialog-buttonpane').prev('div.ui-dialog-content'));
+            var formDataSubmit = gettingForm.serializeArray();
+            console.log(gettingForm.serializeArray());
+            console.log(gettingForm.attr('action'));
+            $.ajax({
+                  url: gettingForm.attr('action'),
+                  type: 'POST',
+                  dataType: "json",
+                  data: {
+                    q: formDataSubmit
+                  },
+                  success: function( data ) {
+                    //searchDummy
+                    var appendHTML = '';
+                    var appendPlace = $('ul.list-issues', bodyContent); 
+                    data.return_arr.forEach(function(single, indx){
+                        appendHTML += searchDummy.replace('@upload_path', single.upload_path)
+                                                .replace('@article_title', single.title)
+                                                .replace('@auther', single.written_by);
+                    });
+                    //console.log(data.last_query);
+                    appendPlace.html(appendHTML);
+                    $('#search-count', dialogSearchResult).text(data.total_search_record);
+                    $('section.ajax-loading', bodyContent).fadeOut();
+                  },
+                  beforeSend: function(){
+                      dialogPastIssue.dialog("close");
+                      setTimeout(function(){
+                          dialogSearchResult.dialog("open");
+                      }, 500);
+                      
+                  }
+            });
         }
         /*past issues dialog operation*/
     
@@ -329,7 +372,7 @@ $(document).ready(function(){
               modal: true,
               resizable: false,
               //position: "center",
-              dialogClass: 'fixed-dialog',
+              dialogClass: 'fixed-dialog-top-positioned',
               show: {
                 effect: "fold",
                 direction: "down",

@@ -107,6 +107,28 @@ if(!defined('BASEPATH')){exit('No direct Script Access Allowed!');}
             return $query->result_array();
         }
         /*updated by 29-5-2016*/
+     
+        /*updated by 11-06-2016*/
+        public function searchPastIssue($criteria){
+            $conditions = array(
+                'j.isblocked'=>'0',
+                'j.isdeleted'=>'0',
+            );
+            foreach($criteria as $key=>$val){
+                if($key != 'category_name')
+                    $conditions['c.'.$key] = $val;
+            }
+            $this->db->select(array('j.*', 'c.category_name as under_category', 'c.parent_id as parent_category', 'c.id as cat_id'));
+            $this->db->from('pdfcategories c');
+            $this->db->join('journals j', 'j.pdfcategory_id = c.id', 'left');
+            $this->db->where($conditions);
+            $this->db->like('c.category_name', $criteria['category_name'], 'both');
+            $query = $this->db->get();
+            if($query->num_rows()>0){
+                return $query->result_array();
+            }
+        }
+        /*updated by 11-06-2016*/
         
         /*updated by 5-6-2016*/
         /*updated by 5-6-2016*/
