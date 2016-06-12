@@ -141,11 +141,11 @@ $(document).ready(function(){
         });
         /*disabling form submit*/
         function SearchJournal(own){
-            var _self = $(own.target).parent('button');
+            var _self = $(own.target);
             var gettingForm = $('form', _self.closest('div.ui-dialog-buttonpane').prev('div.ui-dialog-content'));
             var formDataSubmit = gettingForm.serializeArray();
             //console.log(gettingForm.serializeArray());
-            //console.log(_self.attr('class'));
+            //console.log(gettingForm.prop('action'));
             $.ajax({
                   url: gettingForm.prop('action'),
                   type: 'POST',
@@ -326,11 +326,11 @@ $(document).ready(function(){
         });
         /*disabling form submit*/
         function FindJournal(own){
-            var _self = $(own.target).parent('button');
+            var _self = $(own.target);
             var gettingForm = $('form', _self.closest('div.ui-dialog-buttonpane').prev('div.ui-dialog-content'));
             var formDataSubmit = gettingForm.serializeArray();
-            console.log(gettingForm.serializeArray());
-            console.log(gettingForm.prop('action'));
+            //console.log(gettingForm.serializeArray());
+            //console.log(gettingForm.prop('action'));
             $.ajax({
                   url: gettingForm.prop('action'),
                   type: 'POST',

@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     
-                  <form name="article-search" action="<?php echo base_url();?>home/search-article">
+                  <form name="article-search" action="<?php echo base_url();?>home/search-article" type="POST">
                     <fieldset>
                         
                       <label for="search_criteria">Search Criteria</label>
@@ -69,7 +69,7 @@
                     
                     
                     
-                  <form name="past-issue-search" action="<?php echo base_url();?>home/search-past-issue">
+                  <form name="past-issue-search" action="<?php echo base_url();?>home/search-past-issue" type="POST">
                     <fieldset>
                         
                       <label for="search_criteria_past">Search Criteria</label>
@@ -81,7 +81,7 @@
                     
                         <div class="ui-widget">
                       <label for="criteria_past">Search Word</label>
-                      <input type="text" name="issueing_year" id="issue_year" placeholder="Issue year (in YYYY format only, 2010)" class="text ui-widget-content ui-corner-all criteria-text">
+                      <input type="text" name="issueing_year" id="issue_year" placeholder="Issue year (in YYYY format only, 2010)" class="text ui-widget-content ui-corner-all criteria-text" autocomplete="off">
                         </div>
                       
                       <!-- Allow form submission with keyboard without duplicating the dialog button -->
