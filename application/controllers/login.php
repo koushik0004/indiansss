@@ -109,7 +109,9 @@ class Login extends CI_Controller{
 				
 				//$pagename = (isset($this->session->userdata('request_page')) && $this->session->userdata('request_page')!='')?''.$this->session->userdata('request_page').'':'';
 				//exit();
-				redirect(base_url().$this->session->userdata('request_page'), 'refresh');
+                $ajax_requested_url = ($this->session->userdata('ajax_requested_url')!= NULL)?$this->session->userdata('ajax_requested_url'):base_url();
+                $this->session->unset_userdata('ajax_requested_url');
+				redirect($ajax_requested_url, 'refresh');
 				/*echo '<script>
 					window.location.href='.base_url().$pagename.'
 				</script>';*/
@@ -238,6 +240,8 @@ class Login extends CI_Controller{
 		}
 		
 		public function loggedIn(){
+            $requestedUrl = $_REQUEST['requestedUrl'];
+            $this->session->set_userdata('ajax_requested_url', $requestedUrl);
 			$login = $this->session->userdata('is_logged_in');
 			if(isset($login) && $login===TRUE){
 				echo json_encode(array('responseText'=>'logged_in'));

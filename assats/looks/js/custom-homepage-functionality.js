@@ -409,7 +409,7 @@ $(document).ready(function(){
         var LinkClickManagement = function(path){
             $.post(
                 baseURL+'login/loggedIn',
-                {data : 'check'},
+                {data : 'check', requestedUrl: path},
                 function(data){
                     if(data.responseText == 'logged_in'){
                         var bob = window.open('', '_blank');

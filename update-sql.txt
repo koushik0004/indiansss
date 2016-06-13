@@ -7,4 +7,5 @@ UPDATE `journals` jr SET jr.tags = CONCAT(jr.title, ', ', jr.written_by) WHERE 1
 CREATE TABLE `makemarr_etravers`.`submitted_manuscripts` ( `id` BIGINT(20) NOT NULL AUTO_INCREMENT , `title` VARCHAR(255) NOT NULL , `content` TEXT NOT NULL , 
 `written_by` VARCHAR(255) NOT NULL , `upload_path` VARCHAR(255) NOT NULL , `tags` TEXT NOT NULL , `isblocked` ENUM('0','1') 
 NOT NULL DEFAULT '0' , `isdeleted` ENUM('0','1') NOT NULL DEFAULT '0' , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+ALTER TABLE `submitted_manuscripts` ADD `isapproved` ENUM('0','1') NOT NULL DEFAULT '0' AFTER `tags`;
 
