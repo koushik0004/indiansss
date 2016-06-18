@@ -45,6 +45,7 @@ $route['member/submit-new-manuscript'] = "login/submitManuscript";
 $route['404_override'] = '';
 
 $route['administrator'] = 'administrator/login';
+$route['administrator/submitted-manuscripts'] = 'administrator/journals/listAllSubmittedManuscript';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

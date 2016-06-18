@@ -86,13 +86,14 @@ class Login_Model extends CI_Model{
         if(!empty($_FILES['upload_path']['name'])&& $_FILES['upload_path']['name'] != NULL){
             
             $upload_path = 'manuscript';
+            $updated_file_name = date('dHis').'-'.preg_replace('/(\s+)/', '-', $_FILES['upload_path']['name']);
 
             //echo $upload_path->directory_path;
             //exit;
             $config = array(
                         'allowed_types'=> 'pdf|doc|docx',
                         'upload_path'=>$this->manuscript_path.'/'.$upload_path.'/',
-                        'file_name'=>date('dHis').'-'.preg_replace('/(\s+)/', '-', $_FILES['upload_path']['name']),
+                        'file_name'=>$updated_file_name,
                         'max_size'=>10000
                 );
 
@@ -104,7 +105,7 @@ class Login_Model extends CI_Model{
                 $error = $this->upload->display_errors(); //"This format not a suporting format!!";
                 return $error;
             }
-            $data['upload_path'] = $upload_path.'/'.date('dHis').'-'.preg_replace('/(\s+)/', '-', $_FILES['upload_path']['name']);
+            $data['upload_path'] = $upload_path.'/'.$updated_file_name;
         }
         
         

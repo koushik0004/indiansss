@@ -107,6 +107,24 @@ class journals_model extends CI_Model{
         }
         return $data;
     }
+    
+    
+    /*updated by 18-6-2016*/
+    public function getAllSubmittedManuscript(){
+        $this->db->from('submitted_manuscripts m');
+        $this->db->where('m.isdeleted', '0');
+        $query = $this->db->get();
+        return $query;
+    }
+    public function getAllSubmittedManuscriptCount($start, $offset){
+		$offset = ($offset != '' && $offset>1)?$offset:0;
+		$data_arr = array('isdeleted'=>'0');
+		$this->db->limit($start, $offset);
+		$this->db->where($data_arr);
+		$query = $this->db->get('submitted_manuscripts');
+		return $query->result_array();
+	}
+    /*updated by 18-6-2016*/
 }
 
 ?>

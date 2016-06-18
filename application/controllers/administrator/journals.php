@@ -75,6 +75,37 @@ class journals extends CI_Controller{
             redirect(ADMIN.'journals/', 'refresh');
         }
     }
+    
+    public function listAllSubmittedManuscript(){
+        
+        $this->load->library('pagination');
+        $config['base_url'] = base_url().ADMIN.'submitted-manuscripts';
+        /*most important for the castom 1st url*/
+        $config['first_url'] = base_url().ADMIN.'submitted-manuscripts/1.html';//'http://localhost/CodeIgniterApps/site/index/1.html';
+        $config['total_rows'] = $this->db->get('submitted_manuscripts')->num_rows();
+        $config['per_page'] = 20;
+        $config['num_links'] = (int)$config['total_rows']/$config['per_page'];
+        $config['suffix'] = '.html';
+        $config['uri_segment'] = 3;
+        $config['first_link'] = 'First';
+        $config['last_link'] = 'Last';
+        $config['full_tag_open'] = '<div id="pagination">';
+        $config['full_tag_close'] = '</div>';
+        $this->pagination->initialize($config);
+        $offset = ($this->uri->segment(3)!='')? $this->uri->segment(3) : '1' ;
+        //echo $this->uri->segment(2);
+        if($this->uri->segment(4)=='updated'){
+            //exit();
+            $offset = $this->uri->segment(5);
+        }
+        $data['pagename'] = $this->uri->segment(2);
+        //$data['alluserdata'] = $this->Allusers_Model->getUserListCount($config['per_page'], $offset);
+        $data['pagenumber'] = $offset;
+        $data['all_manuscript'] = $this->journals_model->getAllSubmittedManuscriptCount($config['per_page'], $offset);
+        //echo $this->db->last_query();
+        $data['content_for_layout'] = ADMIN.'submitted_manuscripts';
+        $this->load->view(ADMIN.'template/dashbord_template', $data);
+    }
 }
 
 ?>
