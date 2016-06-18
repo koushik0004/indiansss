@@ -8,4 +8,6 @@ CREATE TABLE `makemarr_etravers`.`submitted_manuscripts` ( `id` BIGINT(20) NOT N
 `written_by` VARCHAR(255) NOT NULL , `upload_path` VARCHAR(255) NOT NULL , `tags` TEXT NOT NULL , `isblocked` ENUM('0','1') 
 NOT NULL DEFAULT '0' , `isdeleted` ENUM('0','1') NOT NULL DEFAULT '0' , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 ALTER TABLE `submitted_manuscripts` ADD `isapproved` ENUM('0','1') NOT NULL DEFAULT '0' AFTER `tags`;
+ALTER TABLE `submitted_manuscripts` ADD `updated` DATETIME NOT NULL AFTER `tags`;
+ALTER TABLE `submitted_manuscripts` ADD `created` DATETIME NOT NULL AFTER `tags`;
 

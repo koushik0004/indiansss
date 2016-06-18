@@ -10,11 +10,16 @@
                 	<div class="head_icon"><img src="<?php echo base_url(); ?>assats/looks/images/content_icon.png" width="110" height="31" /></div>
                 	<h1>Upload Manuscript Here</h1>
                 <?php 
-					echo form_open('login/upload_manuscript', array('class'=>'reg-form'));
+					echo form_open('login/upload_manuscript', array('class'=>'reg-form', 'enctype'=>'multipart/form-data', 'name'=>'upload_manuscript', 'id'=>'upload_manuscript'));
 					//echo '<p>';
 					//echo '<h3>User Info</h3>';
 				?>
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td colspan="2">
+                            <?php echo $this->session->flashdata('upload_manuscript'); ?>
+                        </td>
+                    </tr>    
                       <tr>
 						<td>&nbsp;</td>
 						<td>&nbsp;</td>

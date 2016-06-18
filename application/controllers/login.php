@@ -257,7 +257,16 @@ class Login extends CI_Controller{
         /*updated by 12-6-2016*/
         public function submitManuscript(){
             $data['content_for_layout'] = 'submit_manuscript';
+            //$this->session->set_flashdata('upload_manuscript', 'New Manuscript');
             $this->load->view('include/template', $data);	
+        }
+    
+        public function upload_manuscript(){
+            $result = $this->login_model->uploadManuscriptData();
+            if($result === TRUE){
+                $this->session->set_flashdata('upload_manuscript', 'Manuscript uploaded succefully!');
+                redirect('member/submit-new-manuscript', 'refresh');
+            }
         }
         /*updated by 12-6-2016*/
 }
