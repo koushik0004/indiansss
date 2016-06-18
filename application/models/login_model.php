@@ -92,7 +92,7 @@ class Login_Model extends CI_Model{
             $config = array(
                         'allowed_types'=> 'pdf|doc|docx',
                         'upload_path'=>$this->manuscript_path.'/'.$upload_path.'/',
-                        'file_name'=>$_FILES['upload_path']['name'],
+                        'file_name'=>date('dHis').'-'.$_FILES['upload_path']['name'],
                         'max_size'=>10000
                 );
 
