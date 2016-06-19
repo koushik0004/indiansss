@@ -17,7 +17,7 @@
             </div>
 			
             <!--start sidebar-->
-            <?php if($this->uri->segment(3) == ''):?>
+            <?php if($this->uri->segment(3) == '' || $this->uri->segment(2)=='submitted-manuscripts'): ?>
 				<?php $this->load->view(ADMIN.'template/sidebar'); ?>
             <?php endif; ?>
             <!-- end #sidebar -->

@@ -106,6 +106,38 @@ class journals extends CI_Controller{
         $data['content_for_layout'] = ADMIN.'submitted_manuscripts';
         $this->load->view(ADMIN.'template/dashbord_template', $data);
     }
+    
+    public function manuscript_approval(){
+		$manuscriptid = $this->uri->segment(4);
+        $approval_status = $this->uri->segment(5);
+		$landing_page = $this->uri->segment(6);
+		$update_arr = array(
+						'isapproved'=>$approval_status
+					);
+
+		$this->db->where('id', $manuscriptid);
+		$query = $this->db->update('submitted_manuscripts', $update_arr);
+        //echo $this->db->last_query(); exit();
+		if($query==TRUE){
+            $this->session->set_flashdata('item.status', 'Manuscript updated successfully');
+			redirect(ADMIN.'submitted-manuscripts/'.$landing_page, 'refresh');
+		}
+	}
+    public function delete_manuscript(){
+		$manuscriptid = $this->uri->segment(4);
+		$landing_page = $this->uri->segment(5);
+		$update_arr = array(
+						'isdeleted'=>'1'
+					);
+
+		$this->db->where('id', $manuscriptid);
+		$query = $this->db->update('submitted_manuscripts', $update_arr);
+        //echo $this->db->last_query(); exit();
+		if($query==TRUE){
+            $this->session->set_flashdata('item.status', 'Manuscript deleted successfully');
+			redirect(ADMIN.'submitted-manuscripts/1', 'refresh');
+		}
+	}
 }
 
 ?>

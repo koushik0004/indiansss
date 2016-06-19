@@ -46,6 +46,7 @@ $route['404_override'] = '';
 
 $route['administrator'] = 'administrator/login';
 $route['administrator/submitted-manuscripts'] = 'administrator/journals/listAllSubmittedManuscript';
+$route['administrator/submitted-manuscripts/(:any)'] = 'administrator/journals/listAllSubmittedManuscript/$1';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
