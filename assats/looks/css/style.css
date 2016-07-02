@@ -377,6 +377,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a4b357', end
 #wrapper #body #body_main #middle_col_big .inner .head_icon{width:885px; height:auto; text-align:center;}
 #wrapper #body #body_main #middle_col_big .inner .text{width:850px; height:auto; float:left; padding:10px 15px 10px 15px; line-height:19px; text-align:justify;  background-color:#748084; border:#CCC 1px solid;}
 #wrapper #body #body_main #middle_col_big  .contact_us_bg{width:625px; min-height:140px; height:auto; padding-top:183px; background:url(../images/contact_us_bg.png) no-repeat; padding-left:125px; margin: 60px auto;}
+span.last-mob-number {
+    margin-left: 53pt;
+}
 
 /*contact page css 24-04-2016*/
 
