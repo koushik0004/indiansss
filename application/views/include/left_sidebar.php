@@ -34,8 +34,8 @@ been an important income source for the locals-->
 				<div class="left-col-list-holder">
 					<span class="left-col-list-heading">E-Journal</span>
 					<ul class="left-col-list">
-						<li><a href="#" id="current-issue">Current Issues</a></li>
-						<li><a href="#" id="past-issue">Past Issue</a></li>
+						<li><a href="#" id="current-issue">Current Issue</a></li>
+						<li><a href="#" id="past-issue">Past Issues</a></li>
 						<li><a href="#" id="search-article">Search Articles</a></li>
 						<li><a href="#" id="research-paper">Research Papers</a></li>
 					</ul>
