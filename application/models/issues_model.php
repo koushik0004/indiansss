@@ -44,6 +44,14 @@ class Issues_Model extends CI_Model{
 			'27'=>'Volume: IX No. 1 '
 		);
 	}
+
+	public function getPdfById($id = NULL){
+		 $query = $this->db->get_where('journals', array('id'=>$id, 'isblocked'=>'0'));
+		if($query->num_rows()>0){
+			return $query->result_array();
+		}
+		return FALSE;
+	}
     
 }
 

@@ -49,6 +49,32 @@ class Issues extends CI_Controller {
 		
 		return FALSE;
 	}
+
+	public function rewrite(){
+		$pdfId = $this->uri->segment(4);
+		$pdfDetails = $this->Issues_Model->getPdfById($pdfId);
+		//print_r($pdfDetails);
+		
+
+		$file = base_url().$pdfDetails[0]['upload_path'];
+		$file_name = explode('/', $pdfDetails[0]['upload_path']);
+
+		echo $file_name[count($file_name)-1];
+		header("Content-type:application/pdf");
+		header("Content-Type: application/octet-stream");
+		header("Content-Type: application/download");
+		header("Content-Description: File Transfer");  
+
+		// It will be called downloaded.pdf
+		header("Content-Disposition:attachment;filename=".$file_name[count($file_name)-1]);
+		// The PDF source is in original.pdf
+		readfile($file);
+
+		header("Content-Disposition: attachment; filename=" . $file_name[count($file_name)-1]);
+		header("Content-Length: " . filesize($file));
+		flush(); // this doesn't really matter.
+		//exit();
+	}
 }
 
 /* End of file welcome.php */

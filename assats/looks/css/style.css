@@ -86,6 +86,9 @@ h2{ font-family:Verdana, Arial, Helvetica, sans-serif; font-size:20px; font-weig
 .social_media_link  li a:hover, .social_media_link  li a.active{
 	color:grey;
 }
+a.current-issue-link {
+    text-decoration: none;
+}
 
 
 #wrapper #body #body_main #menu{width:990px; height:50px; background-color:#000000; float:left; margin-left:0px; background-image:url(../images/menu_inactive.png); line-height:30px;}
