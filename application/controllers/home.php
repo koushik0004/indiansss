@@ -107,6 +107,7 @@ class Home extends CI_Controller {
         $generated_rslt = $this->home_model->searchJournal($name_value_pair['criteria'], $name_value_pair['radio'], TRUE); //making articleSearch being TRUE
         for($i=0; $i < count($generated_rslt); $i++){
             $arr[$i] = array(
+                'id'=>$generated_rslt[$i]['id'],
                 'title'=>((strlen($generated_rslt[$i]['title'])>60)?substr($generated_rslt[$i]['title'], 0, 60).'...':$generated_rslt[$i]['title']),
                 'written_by'=>$generated_rslt[$i][$attrSpecification[$name_value_pair['radio']]],
                 'upload_path'=>base_url().$generated_rslt[$i]['upload_path']
@@ -125,6 +126,7 @@ class Home extends CI_Controller {
         $generated_rslt = $this->home_model->searchPastIssue($name_value_pair); 
         for($i=0; $i < count($generated_rslt); $i++){
             $arr[$i] = array(
+                'id'=>$generated_rslt[$i]['id'],
                 'title'=>((strlen($generated_rslt[$i]['title'])>60)?substr($generated_rslt[$i]['title'], 0, 60).'...':$generated_rslt[$i]['title']),
                 'written_by'=>$generated_rslt[$i]['written_by'],
                 'upload_path'=>base_url().$generated_rslt[$i]['upload_path']

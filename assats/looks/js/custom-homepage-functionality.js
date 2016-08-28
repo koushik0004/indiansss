@@ -156,9 +156,11 @@ $(document).ready(function(){
                   success: function( data ) {
                     //searchDummy
                     var appendHTML = '';
-                    var appendPlace = $('ul.list-issues', bodyContent); 
+                    var appendPlace = $('ul.list-issues', bodyContent);
+                    var download_path = '';
                     data.return_arr.forEach(function(single, indx){
-                        appendHTML += searchDummy.replace('@upload_path', single.upload_path)
+                        download_path = baseURL+'issues/rewrite/writer/'+single.id;
+                        appendHTML += searchDummy.replace('@upload_path', download_path)
                                                 .replace('@article_title', single.title)
                                                 .replace('@auther', single.written_by);
                     });
@@ -341,9 +343,11 @@ $(document).ready(function(){
                   success: function( data ) {
                     //searchDummy
                     var appendHTML = '';
-                    var appendPlace = $('ul.list-issues', bodyContent); 
+                    var appendPlace = $('ul.list-issues', bodyContent);
+                    var download_path = '';
                     data.return_arr.forEach(function(single, indx){
-                        appendHTML += searchDummy.replace('@upload_path', single.upload_path)
+                        download_path = baseURL+'issues/rewrite/writer/'+single.id;
+                        appendHTML += searchDummy.replace('@upload_path', download_path)
                                                 .replace('@article_title', single.title)
                                                 .replace('@auther', single.written_by);
                     });
@@ -412,8 +416,8 @@ $(document).ready(function(){
                 {data : 'check', requestedUrl: path},
                 function(data){
                     if(data.responseText == 'logged_in'){
-                        var bob = window.open('', '_blank');
-                        bob.location.href = path;
+                        //var bob = window.open('', '');
+                        window.location.href = path;
                     }
                     else{
                         window.location.href = baseURL+'login.html';
