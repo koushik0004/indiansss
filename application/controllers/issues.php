@@ -53,6 +53,10 @@ class Issues extends CI_Controller {
 	public function rewrite(){
 		$pdfId = $this->uri->segment(4);
 		$pdfDetails = $this->Issues_Model->getPdfById($pdfId);
+		$userDetails = $this->session->userdata('user_id');
+		if(!$this->Issues_Model->getPaymentStatus($userDetails)){
+			redirect('login/index/unpaidmember', 'refresh');
+		}
 		//print_r($pdfDetails);
 		
 

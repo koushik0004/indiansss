@@ -44,7 +44,9 @@ $(document).pngFix( );
                 <tr>
                     <td colspan="2"><strong><?php echo $error_msg; ?></strong></td>
                 </tr>
-                    <?php endif; ?>
+                <?php endif; ?>
+				
+				
 		<tr>
 			<th>Username</th>
 			<td><?php echo form_input(array('name'=>'user_login','id'=>'user_login', 'class'=>'login-inp', 'placeholder'=>'Enter Username')); ?></td>

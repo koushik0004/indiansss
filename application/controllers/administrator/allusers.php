@@ -123,6 +123,21 @@ class Allusers extends CI_Controller {
 		}
 	}
 
+	public function changePaidMode(){
+		$userid = $this->uri->segment(4);
+		$stat = $this->uri->segment(5);
+		$landing_page = $this->uri->segment(6);
+		$update_arr = array(
+						'paid'=>$stat
+					);
+
+		$this->db->where('id', $userid);
+		$query = $this->db->update('users', $update_arr);
+		if($query==TRUE){
+			redirect(ADMIN.'allusers/index/updated/'.$landing_page, 'refresh');
+		}
+	}
+
 }
 
 

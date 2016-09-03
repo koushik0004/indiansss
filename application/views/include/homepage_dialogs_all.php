@@ -13,7 +13,7 @@
                             <p>
                                 <span class="ui-icon ui-icon-info" 
                                     style="float: left; margin-right: .3em;"></span>
-                                Type atlease 3 characters for the search autocomplete.
+                                Type at least 3 characters for the search autocomplete.
                             </p>
                         </div>
                     </div>

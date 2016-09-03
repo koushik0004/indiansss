@@ -52,6 +52,16 @@ class Issues_Model extends CI_Model{
 		}
 		return FALSE;
 	}
+
+	public function getPaymentStatus($id = NULL){
+		$query = $this->db->get_where('users', array('id'=>$id, 'status'=>'1', 'is_deleted'=>'0'));
+		if($query->num_rows()>0){
+			$recordset = $query->result_array();
+			if($recordset[0]['paid']=='1')
+				return TRUE;
+		}
+		return FALSE;
+	}
     
 }
 

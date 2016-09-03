@@ -25,7 +25,7 @@ $(document).ready(function(){
             duration: 1000
           },
           hide: {
-            effect: "explode",
+            effect: "hide",
             duration: 1000
           },
           buttons: {
@@ -60,7 +60,7 @@ $(document).ready(function(){
             duration: 1000
           },
           hide: {
-            effect: "explode",
+            effect: "fade",
             duration: 1000
           },
           buttons: {
@@ -253,7 +253,7 @@ $(document).ready(function(){
                 duration: 1000
               },
               hide: {
-                effect: "explode",
+                effect: "fade",
                 duration: 1000
               },
               buttons: {
@@ -383,7 +383,7 @@ $(document).ready(function(){
                 duration: 1000
               },
               hide: {
-                effect: "explode",
+                effect: "fade",
                 duration: 1000
               },
               buttons: {

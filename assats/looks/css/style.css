@@ -567,6 +567,13 @@ section.ajax-loading {
     height: 300px;
 }
 /*loader image 5-6-2016*/
+/*updated by 3-9-2016*/
+.read_more a{
+	color:#004d58; 
+	font-weight:bold; 
+	font-size:14px; float:right;
+	text-decoration: none;
+}
 /*debvelopped by koushik*/
 
 /*8981538376*/

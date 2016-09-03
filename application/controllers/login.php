@@ -8,7 +8,7 @@ class Login extends CI_Controller{
 	}
 	
 	public function index(){
-
+		
 		$data['content_for_layout'] = 'signin';
 		if($this->uri->segment(3)=='loginfirst'){
 			$data['loginfirest'] = 'Please Login first to see the issue page';
@@ -18,6 +18,10 @@ class Login extends CI_Controller{
 		}
 		if($this->uri->segment(2)=='userlogin'){
 			$data['loginfirest'] = 'login error';
+		}
+		if($this->uri->segment(3)=='unpaidmember'){
+			//echo $this->uri->segment(3);
+			$data['loginfirest'] = 'Unpaid member dose not have autority to download pdf!';
 		}
 		$this->load->view('include/template', $data);
 	}
