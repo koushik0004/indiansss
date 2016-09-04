@@ -12,3 +12,5 @@ ALTER TABLE `submitted_manuscripts` ADD `updated` DATETIME NOT NULL AFTER `tags`
 ALTER TABLE `submitted_manuscripts` ADD `created` DATETIME NOT NULL AFTER `tags`;
 ALTER TABLE `users` ADD `paid` ENUM( '1', '0' ) NOT NULL DEFAULT '0' AFTER `last_login` ;
 
+INSERT INTO `pagecontent` (`id`, `page_name`, `content_title`, `content`, `created`, `updated`, `isblocked`, `isdeleted`) VALUES (NULL, 'subcriptions', '', '', CURRENT_TIME(), CURRENT_TIME(), '0', '0');
+

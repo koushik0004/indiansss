@@ -17,10 +17,22 @@ class Contact extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+	function __construct() {
+		parent::__construct();
+		$this->load->model('Contact_Model');
+	} 
 	public function index()
 	{
         $data['url_path'] = $this->uri->segment(1);
 		$this->load->view('include/contactus_template', $data);
+	}
+
+	public function pageDetails(){
+		$pagename = $this->uri->segment(2);
+		$all_content = $this->Contact_Model->getContentByPage($pagename);
+		$data['pagecontent'] = $all_content[0];
+		$data['content_for_layout'] = 'page_cms';
+		$this->load->view('include/template', $data);
 	}
 }
 

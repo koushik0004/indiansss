@@ -21,7 +21,7 @@ class Login extends CI_Controller{
 		}
 		if($this->uri->segment(3)=='unpaidmember'){
 			//echo $this->uri->segment(3);
-			$data['loginfirest'] = 'Unpaid member dose not have autority to download pdf!';
+			$data['loginfirest'] = 'Unpaid member dose not have authority to download pdf!';
 		}
 		$this->load->view('include/template', $data);
 	}

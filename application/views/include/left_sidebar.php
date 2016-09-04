@@ -62,7 +62,7 @@ been an important income source for the locals-->
 						<li><a href="">Web Statistics</a></li>
 						<li><a href="">Editorial Board</a></li>
 						<li><a href="">Practical / Useful Links</a></li>
-						<li><a href="">Subscriptions</a></li>
+						<li><a href="<?php echo site_url('page-details/subcriptions'); ?>">Subscriptions</a></li>
 					</ul>
 				</div>
 				

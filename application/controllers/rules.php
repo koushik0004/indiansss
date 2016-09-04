@@ -21,12 +21,12 @@ class Rules extends CI_Controller {
             parent::__construct();
             $this->load->model('Rules_Model');
         }
-        public function index()
-	{
-                $data['allrules'] = $this->Rules_Model->getAllRules();
-		$data['content_for_layout'] = 'all_rules';
-		$this->load->view('include/template', $data);
-	}
+        public function index(){
+			
+			$data['allrules'] = $this->Rules_Model->getAllRules();
+			$data['content_for_layout'] = 'all_rules';
+			$this->load->view('include/template', $data);
+		}
 }
 
 /* End of file welcome.php */
