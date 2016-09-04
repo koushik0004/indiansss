@@ -8,6 +8,19 @@
                   <div class="inner">
                     <div class="text">
                         <div class="head_icon"><img src="<?php echo base_url(); ?>assats/looks/images/content_icon.png" width="110" height="31" /></div>
+
+                        <?php if(isset($loginfirest)): ?>
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td colspan="2" align="center" style="color:#033e56; font-size:14px; font-weight:bold;">
+                                              <?php echo $loginfirest; ?>
+                                            </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">&nbsp;</td>
+                            </tr>
+                          </table>
+                        <?php endif; ?>
                         <?php echo $pagecontent['content']; ?>
                         <br />
                         <p></p>

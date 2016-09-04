@@ -29,6 +29,9 @@ class Contact extends CI_Controller {
 
 	public function pageDetails(){
 		$pagename = $this->uri->segment(2);
+		if($this->uri->segment(3)!='' && $this->uri->segment(3)=='unpaidmember'){
+			$data['loginfirest'] = 'Unpaid member dose not have authority to download pdf!';
+		}
 		$all_content = $this->Contact_Model->getContentByPage($pagename);
 		$data['pagecontent'] = $all_content[0];
 		$data['content_for_layout'] = 'page_cms';
