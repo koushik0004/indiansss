@@ -58,10 +58,10 @@ been an important income source for the locals-->
 					<span class="left-col-list-heading">General Info Pages</span>
 					<ul class="left-col-list">
 						<li><a href="">News</a></li>
-						<li><a href="">Abstracting / Indexing</a></li>
+						<li><a href="<?php echo site_url('page-details/abstructing-indexing'); ?>">Abstracting / Indexing</a></li>
 						<li><a href="">Web Statistics</a></li>
-						<li><a href="">Editorial Board</a></li>
-						<li><a href="">Practical / Useful Links</a></li>
+						<li><a href="<?php echo site_url('page-details/editorial-board'); ?>">Editorial Board</a></li>
+						<li><a href="<?php echo site_url('page-details/practical-indexing'); ?>">Practical / Useful Links</a></li>
 						<li><a href="<?php echo site_url('page-details/subcriptions'); ?>">Subscriptions</a></li>
 					</ul>
 				</div>

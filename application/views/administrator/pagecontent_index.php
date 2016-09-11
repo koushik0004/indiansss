@@ -42,11 +42,12 @@
 					  		foreach($tot_pages as $tot_page):
 							
 								$edit_status = ($tot_page->isblocked=='0')?'1':'0';
+								$page_title = implode(' ', explode('-', $tot_page->page_name));
 							
 					  ?>
                       <tr align="center" <?php echo ($cnt%2!=0)?'class="odd"':''; ?>>
                       	<td width="5%" ><?php echo $cnt++;?></td>
-                        <td width="36%"><?php echo ucwords($tot_page->page_name);?></td>
+                        <td width="36%"><?php echo ucwords($page_title);?></td>
                         <td width="22%"><?php echo $tot_page->created ;?></td>
                         <td width="20%"><?php echo $tot_page->updated ;?></td>
                         <td width="19%"><a href="<?php echo site_url(ADMIN.'pagecontent/changeState/'.$tot_page->id.'/'.$edit_status.''); ?>"><img src="<?php echo base_url();?>assats/control/img/<?php echo ($tot_page->isblocked=='1')?'status-inactive.png':'status-active.png'; ?>" border="0" /></a>&nbsp;&nbsp;<a href="<?php echo site_url(ADMIN.'pagecontent/editpage/'.$tot_page->id.''); ?>"><img src="<?php echo base_url();?>assats/control/img/content_edit.png" border="0" /></a></td>

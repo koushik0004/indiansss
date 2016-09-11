@@ -13,4 +13,10 @@ ALTER TABLE `submitted_manuscripts` ADD `created` DATETIME NOT NULL AFTER `tags`
 ALTER TABLE `users` ADD `paid` ENUM( '1', '0' ) NOT NULL DEFAULT '0' AFTER `last_login` ;
 
 INSERT INTO `pagecontent` (`id`, `page_name`, `content_title`, `content`, `created`, `updated`, `isblocked`, `isdeleted`) VALUES (NULL, 'subcriptions', '', '', CURRENT_TIME(), CURRENT_TIME(), '0', '0');
+INSERT INTO `pagecontent` (`id`, `page_name`, `content_title`, `content`, `created`, `updated`, `isblocked`, `isdeleted`) VALUES (NULL, 'abstructing-indexing', 'Abstructing / Indexing', '', CURRENT_TIME(), CURRENT_TIME(), '0', '0');
+INSERT INTO `pagecontent` (`id`, `page_name`, `content_title`, `content`, `created`, `updated`, `isblocked`, `isdeleted`) VALUES (NULL, 'editorial-board', '', '', CURRENT_TIME(), CURRENT_TIME(), '0', '0'), 
+(NULL, 'practical-indexing', '', '', CURRENT_TIME(), CURRENT_TIME(), '0', '0');
+INSERT INTO `pagecontent` (`id`, `page_name`, `content_title`, `content`, `created`, `updated`, `isblocked`, `isdeleted`) VALUES (NULL, 'web-statistics', '', '', CURRENT_TIME(), CURRENT_TIME(), '0', '0');
+INSERT INTO `pagecontent` (`id`, `page_name`, `content_title`, `content`, `created`, `updated`, `isblocked`, `isdeleted`) VALUES (NULL, 'workinmg-committee', '', '', CURRENT_TIME(), CURRENT_TIME(), '0', '0'), 
+(NULL, 'reviewer-rule-books', '', '', CURRENT_TIME(), CURRENT_TIME(), '0', '0');
 
